@@ -1,0 +1,19 @@
+{
+    "name": "youtube-stats-card",
+    "version": "1.0.0",
+    "description": "Dynamically generate YouTube Stats Cards for your github readmes &amp; websites",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Dhyeythumar/youtube-stats-card.git"
+    },
+    "author": "Dhyey Thumar",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Dhyeythumar/youtube-stats-card/issues"
+    },
+    "homepage": "https://github.com/Dhyeythumar/youtube-stats-card#readme"
+}
