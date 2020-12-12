@@ -11,7 +11,7 @@ const renderChannelStatsCard = (stats = {}, options = {}) => {
         subscriberCount,
         videoCount,
         publishedAt,
-        channelStatus,
+        channelStatus
     } = stats;
     const {
         layout = "default",
@@ -68,10 +68,14 @@ const renderChannelStatsCard = (stats = {}, options = {}) => {
     const metaData = {
         cardBorder: hide_border ? 0 : 1,
         // !! have to modify this in render-layout script !!
-        cardTitleXPos: 0,
-        cardBodyXPos: hide_icons ? -36 : 0,
         cardHeight: 0,
-        cardWidth: 0
+        cardWidth: 0,
+        cardLogoXPos: 0,
+        cardLogoYPos: 0,
+        cardTitleXPos: 0,
+        cardTitleYPos: 0,
+        cardBodyXPos: 0,
+        cardBodyYPos: 0
     };
 
     return renderLayout(cardData, colors, metaData, layout);
