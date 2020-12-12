@@ -1,13 +1,13 @@
 // Collecting youtube channel stats
 
-const { ChannelError } = require("../common/utils");
+const { YTStatsRequestError } = require("../common/utils");
 const request = require('superagent')
 require("dotenv").config();
 
-const getYoutubeChannelData = async (channelID) => {
+const fetchChannelStats = async (channelID) => {
 
     if (!channelID) {
-        throw new ChannelError("No Channel ID provided");
+        throw new YTStatsRequestError("No Channel ID provided");
     }
 
     let res = await request.get('https://youtube.googleapis.com/youtube/v3/channels')
@@ -20,7 +20,7 @@ const getYoutubeChannelData = async (channelID) => {
 
     if (res.statusCode == 200) {
         if (res.body.pageInfo.totalResults == 0) {
-            throw new ChannelError("Could not fetch the channel data", ChannelError.CHANNEL_NOT_FOUND);
+            throw new YTStatsRequestError("Could not fetch the channel data", YTStatsRequestError.CHANNEL_NOT_FOUND);
         }
 
         res = res.body.items[0];
@@ -35,11 +35,14 @@ const getYoutubeChannelData = async (channelID) => {
         }
         return stats;
     }
+    else if (res.statusCode == 403 && res.statusMessage == "quotaExceeded") {
+        throw new YTStatsRequestError("YouTube API quota exceeded for this day !!", YTStatsRequestError.QUOTA_EXCEEDED
+        );
+    }
     else {
-        throw new ChannelError(`[ERR] API responded with ${res.statusCode}!!`,
-            ChannelError.CHANNEL_API_ERROR
+        throw new YTStatsRequestError(`[ERR] API responded with ${res.statusCode} !!`, YTStatsRequestError.CHANNEL_API_ERROR
         );
     }
 }
 
-module.exports = getYoutubeChannelData;
+module.exports = fetchChannelStats;
