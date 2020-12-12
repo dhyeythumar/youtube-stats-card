@@ -25,11 +25,16 @@ const encodeHTML = (str) => {
 }
 
 const SECONDARY_ERROR_MESSAGES = {
-    CHANNEL_NOT_FOUND: "Make sure the provided correct channel ID",
-    CHANNEL_API_ERROR: "Something went wrong with YouTube Channel API"
+    CHANNEL_NOT_FOUND: "Make sure that you provide correct Channel ID",
+    CHANNEL_API_ERROR: "Something went wrong with YouTube Channel API",
+    QUOTA_EXCEEDED: "Please file an issue if this problem persists",
+    VIDEO_NOT_FOUND: "Make sure that you provide correct Video ID",
+    VIDEO_API_ERROR: "Something went wrong with YouTube Video API",
+    PRIVATE_VIDEO: "Make sure the given video is public or unlisted",
+    VIDEO_DELETED: "Make sure the given video exits"
 };
 
-class ChannelError extends Error {
+class YTStatsRequestError extends Error {
     constructor(message, type) {
         super(message);
         this.type = type;
@@ -37,7 +42,13 @@ class ChannelError extends Error {
     }
     static CHANNEL_NOT_FOUND = "CHANNEL_NOT_FOUND";
     static CHANNEL_API_ERROR = "CHANNEL_API_ERROR";
+    static QUOTA_EXCEEDED = "QUOTA_EXCEEDED";
+    static VIDEO_NOT_FOUND = "VIDEO_NOT_FOUND";
+    static VIDEO_API_ERROR = "VIDEO_API_ERROR";
+    static PRIVATE_VIDEO = "PRIVATE_VIDEO";
+    static VIDEO_DELETED = "VIDEO_DELETED";
 }
+
 
 const CONSTANTS = {
     THIRTY_MINUTES: 1800,
@@ -64,10 +75,8 @@ const clampValue = (number, min, max) => {
 const parseBoolean = (value) => {
     if (value === "true") {
         return true;
-    } else if (value === "false") {
-        return false;
     } else {
-        return value;
+        return false;
     }
 }
 
@@ -107,7 +116,7 @@ const wrapText = (text, maxChar = 20) => {
 
 module.exports = {
     renderError,
-    ChannelError,
+    YTStatsRequestError,
     CONSTANTS,
     numberFormatter,
     clampValue,
