@@ -1,12 +1,9 @@
-require("dotenv").config();
 const fetchChannelStats = require("../src/fetchers/channelStats-fetcher");
 const renderChannelStatsCard = require("../src/cards/channel-card");
 const { renderError, parseBoolean, clampValue, CONSTANTS } = require("../src/common/utils");
 
 // :: TODO list ::
-// 1. check id channel id is NULL [Done]
-// 2. Cache is not working in vercel dev
-// 3. How to change the layout theme dynamically [Done]
+// 1. Is there any other efficient way to render card layouts dynamically??
 
 module.exports = async (req, res) => {
     const {
@@ -35,7 +32,8 @@ module.exports = async (req, res) => {
             CONSTANTS.TWO_HOURS,
             CONSTANTS.ONE_DAY
         );
-        res.setHeader("Cache-Control", `public, max-age=${10000}`);
+
+        res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
 
         return res.send(
             renderChannelStatsCard(stats, {
