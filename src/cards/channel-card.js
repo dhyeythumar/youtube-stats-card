@@ -4,16 +4,18 @@ const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
 
 // Channel logo elements
-const getClipPath = () => {
-    return `<clipPath id="imgholder" transform="translate(0 0)">
-        <circle class="card-logo" cx="40" cy="40" r="40"/>
-    </clipPath>`;
-}
 const getLOGO = (url) => {
-    return `<image transform="translate(0 0)" width="80" height="80" href="${url}" clip-path="url(#imgholder)"/>
-    <g data-testid="card-logo" transform="translate(0 20)">
-        <circle class="circle-rim" cx="40" cy="40" r="40"/>
-    </g>`;
+    return {
+        clipPath:
+            `<clipPath id="imgholder" transform="translate(0 0)">
+                <circle class="card-logo" cx="40" cy="40" r="40"/>
+            </clipPath>`,
+        logoHolder:
+            `<image transform="translate(0 0)" width="80" height="80" href="${url}" clip-path="url(#imgholder)"/>
+            <g data-testid="card-logo" transform="translate(0 20)">
+                <circle class="circle-rim" cx="40" cy="40" r="40"/>
+            </g>`,
+    };
 }
 
 const renderChannelStatsCard = (stats = {}, options = {}) => {
@@ -48,18 +50,14 @@ const renderChannelStatsCard = (stats = {}, options = {}) => {
         theme,
     });
 
-    let clipPath, logoHolder;
+    let logo;
     if (hide_logo === false) {
-        clipPath = getClipPath();
-        logoHolder = getLOGO(logoURL);
+        logo = getLOGO(logoURL);
     }
 
     const cardData = {
         title: wrapText(custom_title) || wrapText(title),
-        logo: {
-            clipPath: clipPath || "",
-            logoHolder: logoHolder || ""
-        },
+        logo: logo || "",
         subscribers: {
             icon: hide_icons ? "" : icons.subscribers,
             label: "Subscribers",
