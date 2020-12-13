@@ -1,33 +1,8 @@
 const { layoutNames, getlayout } = require("./layouts")
+const { getCommonStyle } = require("../common/getStyles")
 
-const getCssStyle = (colors) => {
+const getCustomStyle = (colors) => {
     return `
-    .title {
-        font: 500 22px Ubuntu, 'Segoe UI', Sans-Serif;
-        fill: ${colors.titleColor};
-        animation: fadeInAnimation 0.8s ease-in-out forwards;
-    }
-    .card-bg {
-        fill: ${colors.bgColor};
-    }
-    .stagger {
-        opacity: 0;
-        animation: fadeInAnimation 0.3s ease-in-out forwards;
-    }
-    .text {
-        font: 500 16px Ubuntu, 'Segoe UI', Sans-Serif;
-        fill: ${colors.textColor};
-    }
-    .bold {
-        font-weight: 600;
-    }
-    .icon-color {
-        fill: ${colors.iconColor};
-    }
-    .iconStroke {
-        stroke-width: 0.5px;
-        stroke: ${colors.iconColor};
-    }
     .circle-rim {
         stroke: ${colors.titleColor};
         stroke-dasharray: 250;
@@ -46,20 +21,13 @@ const getCssStyle = (colors) => {
         to {
             stroke-dashoffset: 0;
         }
-    }
-    @keyframes fadeInAnimation {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
     }`;
 }
 
 const renderLayout = (cardData, colors, metaData, layout) => {
 
-    const cardStyle = getCssStyle(colors);
+    const customStyle = getCustomStyle(colors);
+    const cardStyle = getCommonStyle(colors, customStyle);
 
     let selectedLayout = layout;
     if (layout != "default") {
@@ -81,7 +49,7 @@ const renderLayout = (cardData, colors, metaData, layout) => {
         metaData.cardTitleYPos = 50;
 
         // if no icon then shift body left by 36
-        if (cardData.subscribers.icon === "") {
+        if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 36;
         }
         // if no logo then shift title & body left by 40
@@ -108,7 +76,7 @@ const renderLayout = (cardData, colors, metaData, layout) => {
         metaData.cardBodyXPos -= 12;
 
         // if no icon then shift body left by 18
-        if (cardData.subscribers.icon === "") {
+        if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 18;
         }
         // if no logo then shift title & body up by 102
