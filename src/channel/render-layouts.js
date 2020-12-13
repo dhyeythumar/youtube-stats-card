@@ -48,11 +48,11 @@ const renderLayout = (cardData, colors, metaData, layout) => {
         metaData.cardTitleXPos = 140;
         metaData.cardTitleYPos = 50;
 
-        // if no icon then shift body left by 36
+        // if no icon then shift body left
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 36;
         }
-        // if no logo then shift title & body left by 40
+        // if no logo then shift title & body left
         if (cardData.logo.clipPath === "") {
             metaData.cardTitleXPos -= 40;
             metaData.cardBodyXPos -= 40;
@@ -60,26 +60,21 @@ const renderLayout = (cardData, colors, metaData, layout) => {
     }
     else if (selectedLayout === "center") {
         metaData.cardBorder = 2;
-        // height & width for this layout
         metaData.cardHeight = 312;
         metaData.cardWidth = 400;
 
-        // logo's (x, y) pos for this layout
         metaData.cardLogoXPos = 160;
         metaData.cardLogoYPos = 25;
 
-        // title's (x, y) pos for this layout
-        // x co-ord is auto centered
+        // title's x co-ord is auto centered
         metaData.cardTitleYPos = 162;
 
         // TODO :: find a better way to center body's x co-ord
         metaData.cardBodyXPos -= 12;
 
-        // if no icon then shift body left by 18
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 18;
         }
-        // if no logo then shift title & body up by 102
         if (cardData.logo.clipPath === "") {
             metaData.cardTitleYPos -= 102;
             metaData.cardBodyYPos -= 102;
