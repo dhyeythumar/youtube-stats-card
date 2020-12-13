@@ -35,10 +35,30 @@ const renderLayout = (cardData, colors, metaData, layout) => {
             metaData.cardHeight -= 30;
             metaData.cardBodyYPos -= 30;
         }
-
         // if no icon then shift body left
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 38;
+        }
+    }
+    if (selectedLayout === "compact") {
+        metaData.cardHeight = 252;
+        metaData.cardWidth = 618;
+
+        // video preview's (x, y) pos for this layout
+        metaData.cardVideoPreviewXPos = 30;
+        metaData.cardVideoPreviewYPos = 30;
+
+        metaData.cardTitleXPos = 266;
+        metaData.cardTitleYPos = 50;
+
+        if (cardData.views.icon === "") {
+            metaData.cardBodyXPos -= 32;
+        }
+        if (cardData.videoPreview === "") {
+            metaData.cardHeight -= 52;
+            metaData.cardWidth -= 94;
+            metaData.cardTitleXPos -= 236;
+            metaData.cardBodyYPos -= 52;
         }
     }
 
