@@ -29,7 +29,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
 
                 <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
                     <g class="stagger" style="animation-delay: 450ms">
-                        <g data-testid="subscriberIcon" transform="translate(140 86)" class="icon-color" stroke-width="0.5">
+                        <g transform="translate(142 88)"  class="icon-color">
                             <!-- subscribers icon path here-->
                             ${cardData.subscribers.icon}
                         </g>
@@ -40,7 +40,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 600ms">
-                        <g data-testid="viewIcon" transform="translate(138 128)" class="icon-color iconStroke-reduce">
+                        <g transform="translate(138 128)" class="icon-color iconStroke-reduce">
                             <!-- total views icon path here-->
                             ${cardData.views.icon}
                         </g>
@@ -51,7 +51,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 750ms">
-                        <g data-testid="videoIcon" class="icon-color" stroke-width="0.5" transform="translate(142 164)">
+                        <g transform="translate(142 164)" class="icon-color">
                             <!-- total videos icon path here -->
                             ${cardData.videos.icon}
                         </g>
@@ -86,7 +86,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
 
                 <g data-testid="card-body" class="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
                     <g class="stagger" style="animation-delay: 450ms">
-                        <g data-testid="subscriberIcon" transform="translate(82 186)" class="icon-color" stroke-width="0.5">
+                        <g transform="translate(84 188)" class="icon-color">
                             <!-- subscribers icon path here-->
                             ${cardData.subscribers.icon}
                         </g>
@@ -97,7 +97,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 600ms">
-                        <g data-testid="viewIcon" transform="translate(80 229)" class="icon-color iconStroke-reduce">
+                        <g transform="translate(80 229)" class="icon-color iconStroke-reduce">
                             <!-- total views icon path here-->
                             ${cardData.views.icon}
                         </g>
@@ -108,7 +108,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 750ms">
-                        <g data-testid="videoIcon" class="icon-color" stroke-width="0.5" transform="translate(84 266)">
+                        <g transform="translate(84 266)" class="icon-color">
                             <!-- total videos icon path here -->
                             ${cardData.videos.icon}
                         </g>
