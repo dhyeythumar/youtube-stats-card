@@ -3,21 +3,26 @@ const renderLayout = require("../video/render-layouts")
 const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
 const getVideoPreview = (url) => {
-    return `<image transform="translate(20 0)" style="border-radius:4px" width="470" height="263" href="${url}"/>`;
-}
-const getGradientBG = (bgColor) => {
     return `
-    <linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0" y2="0.5" gradientUnits="objectBoundingBox">
-        <stop offset="0" stop-color="${bgColor}" stop-opacity="0.6"/>
-        <stop offset="0.4" stop-color="${bgColor}" stop-opacity="0.92"/>
-        <stop offset="0.6" stop-color="${bgColor}" stop-opacity="0.96"/>
-        <stop offset="0.8" stop-color="${bgColor}" stop-opacity="100"/>
-    </linearGradient>`;
+    <image width="206" height="116" href="${url}"/>`;
 }
-const getGradientStyle = () => {
-    return `.gradient{
-        fill: url(#linear-gradient);
-    }`;
+
+const getGradientVideoPreview = (url, bgColor) => {
+    return {
+        preview:
+            `<image transform="translate(20 0)" width="470" height="263" href="${url}"/>`,
+        gradientBG:
+            `<linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0" y2="0.5" gradientUnits="objectBoundingBox">
+                <stop offset="0" stop-color="${bgColor}" stop-opacity="0.6"/>
+                <stop offset="0.4" stop-color="${bgColor}" stop-opacity="0.92"/>
+                <stop offset="0.6" stop-color="${bgColor}" stop-opacity="0.96"/>
+                <stop offset="0.8" stop-color="${bgColor}" stop-opacity="100"/>
+            </linearGradient>`,
+        gradientStyle:
+            `.gradient{
+                fill: url(#linear-gradient);
+            }`,
+    };
 }
 
 const renderVideoStatsCard = (stats = {}, options = {}) => {
@@ -53,20 +58,19 @@ const renderVideoStatsCard = (stats = {}, options = {}) => {
         theme,
     });
 
-    let preview, gradientBG, gradientStyle;
+    let videoPreview;
     if (hide_preview === false) {
-        preview = getVideoPreview(videoPreviewURL);
-        gradientBG = getGradientBG(colors.bgColor);
-        gradientStyle = getGradientStyle();
+        if (layout === "default") {
+            videoPreview = getGradientVideoPreview(videoPreviewURL, colors.bgColor);
+        }
+        else {
+            videoPreview = getVideoPreview(videoPreviewURL);
+        }
     }
 
     const cardData = {
-        title: wrapText(title),
-        videoPreview: {
-            preview: preview || "",
-            gradientBG: gradientBG || "",
-            gradientStyle: gradientStyle || ""
-        },
+        title: wrapText(title, 30),
+        videoPreview: videoPreview || "",
         channelTitle: hide_channelname ? "" : wrapText(channelTitle),
         views: {
             icon: hide_icons ? "" : icons.views,
@@ -96,6 +100,8 @@ const renderVideoStatsCard = (stats = {}, options = {}) => {
         // !! have to modify this in render-layout script !!
         cardHeight: 0,
         cardWidth: 0,
+        cardVideoPreviewXPos: 0,
+        cardVideoPreviewYPos: 0,
         cardTitleXPos: 0,
         cardTitleYPos: 0,
         cardBodyXPos: 0,
