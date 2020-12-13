@@ -1,7 +1,20 @@
 const icons = require("../common/icons");
-const { getClipPath, getLOGO } = require("../channel/logo");
 const renderLayout = require("../channel/render-layouts")
 const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
+
+
+// Channel logo elements
+const getClipPath = () => {
+    return `<clipPath id="imgholder" transform="translate(0 0)">
+        <circle class="card-logo" cx="40" cy="40" r="40"/>
+    </clipPath>`;
+}
+const getLOGO = (url) => {
+    return `<image transform="translate(0 0)" width="80" height="80" href="${url}" clip-path="url(#imgholder)"/>
+    <g data-testid="card-logo" transform="translate(0 20)">
+        <circle class="circle-rim" cx="40" cy="40" r="40"/>
+    </g>`;
+}
 
 const renderChannelStatsCard = (stats = {}, options = {}) => {
     const {
