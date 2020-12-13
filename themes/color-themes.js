@@ -11,6 +11,30 @@ const color_themes = {
         text_color: "9f9f9f",
         bg_color: "151515",
     },
+    dark_pink: {
+        title_color: "f2b9b2",
+        icon_color: "ffa79d",
+        text_color: "fffefe",
+        bg_color: "130f2d",
+    },
+    neon: {
+        title_color: "befb3d",
+        icon_color: "baff29",
+        text_color: "fffefe",
+        bg_color: "0c0e17",
+    },
+    faded_pink: {
+        title_color: "f7dbcb",
+        icon_color: "ffcbad",
+        text_color: "fffefe",
+        bg_color: "40423e",
+    },
+    faded_blue: {
+        title_color: "cbf7db",
+        icon_color: "99ffbe",
+        text_color: "fffefe",
+        bg_color: "40423e",
+    },
     radical: {
         title_color: "fe428e",
         icon_color: "f8d847",
@@ -78,11 +102,11 @@ const color_themes = {
         bg_color: "ffffff",
     },
     algolia: {
-        title_color: "00AEFF",
-        icon_color: "2DDE98",
-        text_color: "FFFFFF",
-        bg_color: "050F2C",
-    },
+        title_color: "00aeff",
+        icon_color: "2dde98",
+        text_color: "ffffff",
+        bg_color: "050f2c",
+    }
 };
 
 module.exports = color_themes;
