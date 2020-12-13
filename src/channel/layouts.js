@@ -1,8 +1,8 @@
-// List of all layout available
+// List of all layout available for channel stats card
 const layoutNames = ["default", "center"];
 
 // :: While adding new layout ::
-// Put the cardData, cardStyle and metaData to correct position
+// Put the cardData, cardStyle and metaData to correct location
 // Add the new layout name to above `layoutNames` list !!
 
 const getlayout = (cardData, cardStyle, metaData, layout) => {
@@ -29,8 +29,8 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
 
                 <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
                     <g class="stagger" style="animation-delay: 450ms">
-                        <g data-testid="subscriberIcon" transform="translate(-148 520)" class="icon-color iconStroke">
-                            <!-- subscribers icon here-->
+                        <g data-testid="subscriberIcon" transform="translate(140 86)" class="icon-color" stroke-width="0.5">
+                            <!-- subscribers icon path here-->
                             ${cardData.subscribers.icon}
                         </g>
 
@@ -40,8 +40,8 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 600ms">
-                        <g data-testid="viewIcon" transform="translate(138 128)" class="icon-color">
-                            <!-- total views icon here-->
+                        <g data-testid="viewIcon" transform="translate(138 128)" class="icon-color iconStroke-reduce">
+                            <!-- total views icon path here-->
                             ${cardData.views.icon}
                         </g>
 
@@ -51,14 +51,14 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 750ms">
-                        <g data-testid="videoIcon" class="icon-color iconStroke" transform="translate(142 164)">
-                            <!-- total videos icon here -->
+                        <g data-testid="videoIcon" class="icon-color" stroke-width="0.5" transform="translate(142 164)">
+                            <!-- total videos icon path here -->
                             ${cardData.videos.icon}
                         </g>
 
-                        <text id="videosCountLabel" class="text" transform="translate(178 180)">${cardData.videos.label}:</text>
+                        <text id="videoCountLabel" class="text" transform="translate(178 180)">${cardData.videos.label}:</text>
 
-                        <text id="videosCountField" class="text" transform="translate(350 180)">${cardData.videos.value}</text>
+                        <text id="videoCountField" class="text" transform="translate(350 180)">${cardData.videos.value}</text>
                     </g>
                 </g>
             </svg>`,
@@ -86,7 +86,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
 
                 <g data-testid="card-body" class="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
                     <g class="stagger" style="animation-delay: 450ms">
-                        <g data-testid="subscriberIcon" transform="translate(-205 620)" class="icon-color iconStroke">
+                        <g data-testid="subscriberIcon" transform="translate(82 186)" class="icon-color" stroke-width="0.5">
                             <!-- subscribers icon path here-->
                             ${cardData.subscribers.icon}
                         </g>
@@ -97,7 +97,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 600ms">
-                        <g data-testid="viewIcon" transform="translate(80 229)" class="icon-color">
+                        <g data-testid="viewIcon" transform="translate(80 229)" class="icon-color iconStroke-reduce">
                             <!-- total views icon path here-->
                             ${cardData.views.icon}
                         </g>
@@ -108,14 +108,14 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                     </g>
 
                     <g class="stagger" style="animation-delay: 750ms">
-                        <g data-testid="videoIcon" class="icon-color iconStroke" transform="translate(84 266)">
+                        <g data-testid="videoIcon" class="icon-color" stroke-width="0.5" transform="translate(84 266)">
                             <!-- total videos icon path here -->
                             ${cardData.videos.icon}
                         </g>
 
-                        <text id="videosCountLabel" class="text" transform="translate(118 282)">${cardData.videos.label}:</text>
+                        <text id="videoCountLabel" class="text" transform="translate(118 282)">${cardData.videos.label}:</text>
 
-                        <text id="videosCountField" class="text" transform="translate(290 282)">${cardData.videos.value}</text>
+                        <text id="videoCountField" class="text" transform="translate(290 282)">${cardData.videos.value}</text>
                     </g>
                 </g>
             </svg>`,
