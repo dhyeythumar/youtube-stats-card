@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
     const {
         videoid,
         layout,
+        hide_channelname,
         hide_icons,
         hide_preview,
         hide_border,
@@ -37,6 +38,7 @@ module.exports = async (req, res) => {
         return res.send(
             renderVideoStatsCard(stats, {
                 layout,
+                hide_channelname: parseBoolean(hide_channelname),
                 hide_icons: parseBoolean(hide_icons),
                 hide_preview: parseBoolean(hide_preview),
                 hide_border: parseBoolean(hide_border),
