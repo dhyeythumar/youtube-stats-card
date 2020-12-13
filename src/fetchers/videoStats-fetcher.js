@@ -32,7 +32,7 @@ const fetchVideoStats = async (videoID) => {
         else {
             const stats = {
                 title: res.snippet.title,
-                videoPreviewURL: res.snippet.thumbnails.default.url,
+                videoPreviewURL: res.snippet.thumbnails.maxres.url,
                 channelTitle: res.snippet.channelTitle,
                 viewCount: res.statistics.viewCount,
                 likeCount: res.statistics.likeCount,
