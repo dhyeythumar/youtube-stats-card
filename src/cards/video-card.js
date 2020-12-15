@@ -1,16 +1,15 @@
 const icons = require("../common/icons");
 const renderLayout = require("../video/render-layouts")
-const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
+const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
-const getVideoPreview = (url) => {
-    return `
-    <image width="206" height="116" href="${url}"/>`;
+const getVideoPreview = (imageBlob) => {
+    return `<image width="206" height="116" href="${imageBlob}"/>`;
 }
 
-const getGradientVideoPreview = (url, bgColor) => {
+const getGradientVideoPreview = (imageBlob, bgColor) => {
     return {
         preview:
-            `<image transform="translate(20 0)" width="470" height="263" href="${url}"/>`,
+            `<image transform="translate(20 0)" width="470" height="263" href="${imageBlob}"/>`,
         gradientBG:
             `<linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0" y2="0.5" gradientUnits="objectBoundingBox">
                 <stop offset="0" stop-color="${bgColor}" stop-opacity="0.6"/>
@@ -25,7 +24,7 @@ const getGradientVideoPreview = (url, bgColor) => {
     };
 }
 
-const renderVideoStatsCard = (stats = {}, options = {}) => {
+const renderVideoStatsCard = async (stats = {}, options = {}) => {
     const {
         title,
         videoPreviewURL,
@@ -61,10 +60,10 @@ const renderVideoStatsCard = (stats = {}, options = {}) => {
     let videoPreview;
     if (hide_preview === false) {
         if (layout === "default") {
-            videoPreview = getGradientVideoPreview(videoPreviewURL, colors.bgColor);
+            videoPreview = getGradientVideoPreview(await URL2Base64(videoPreviewURL), colors.bgColor);
         }
         else {
-            videoPreview = getVideoPreview(videoPreviewURL);
+            videoPreview = getVideoPreview(await URL2Base64(videoPreviewURL));
         }
     }
 

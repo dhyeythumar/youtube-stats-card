@@ -4,7 +4,7 @@ const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../com
 
 // Channel logo elements
 const getLOGO = (imageBlob) => {
-    return `<foreignObject transform="translate(0 0)"  width="80" height="80">
+    return `<foreignObject transform="translate(0 0)" width="80" height="80">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <img width="100%" height="100%" src="${imageBlob}" style="border-radius:50%" />
         </div>
