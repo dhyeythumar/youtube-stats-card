@@ -53,7 +53,7 @@ const renderLayout = (cardData, colors, metaData, layout) => {
             metaData.cardBodyXPos -= 36;
         }
         // if no logo then shift title & body left
-        if (cardData.logo.clipPath === "") {
+        if (cardData.logo === "") {
             metaData.cardTitleXPos -= 40;
             metaData.cardBodyXPos -= 40;
         }
@@ -75,7 +75,7 @@ const renderLayout = (cardData, colors, metaData, layout) => {
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 18;
         }
-        if (cardData.logo.clipPath === "") {
+        if (cardData.logo === "") {
             metaData.cardTitleYPos -= 102;
             metaData.cardBodyYPos -= 102;
             metaData.cardHeight -= 102;

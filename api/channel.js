@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
         res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
 
         return res.send(
-            renderChannelStatsCard(stats, {
+            await renderChannelStatsCard(stats, {
                 layout,
                 custom_title,
                 hide_icons: parseBoolean(hide_icons),

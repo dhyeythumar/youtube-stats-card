@@ -1,4 +1,19 @@
 const themes = require("../../themes/color-themes");
+const request = require('superagent')
+
+const URL2Base64 = async (url) => {
+    let res = await request.get(url);
+    if (res.statusCode === 200) {
+        const blob = "data:image/jpeg;base64," + res.body.toString('base64');
+        return blob;
+    }
+    else {
+        console.log(`Image URL responded with ${res.statusCode}`)
+        return "";
+    }
+    // var decodedImage = new Buffer(base64Image, 'base64');
+    // console.log(decodedImage);
+};
 
 const renderError = (message, secondaryMessage = "") => {
     return `<svg width="560" height="120" viewBox="0 0 560 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,6 +130,7 @@ const wrapText = (text, maxChar = 20) => {
 }
 
 module.exports = {
+    URL2Base64,
     renderError,
     YTStatsRequestError,
     CONSTANTS,

@@ -1,13 +1,12 @@
 const icons = require("../common/icons");
 const renderLayout = require("../channel/render-layouts")
-const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
-
+const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
 // Channel logo elements
-const getLOGO = (url) => {
+const getLOGO = (imageBlob) => {
     return `<foreignObject transform="translate(0 0)"  width="80" height="80">
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <img width="100%" height="100%" src="${url}" crossorigin="anonymous" style="border-radius:50%" />
+            <img width="100%" height="100%" src="${imageBlob}" style="border-radius:50%" />
         </div>
     </foreignObject>
     <g data-testid="card-logo" transform="translate(0 20)">
@@ -15,7 +14,7 @@ const getLOGO = (url) => {
     </g>`;
 }
 
-const renderChannelStatsCard = (stats = {}, options = {}) => {
+const renderChannelStatsCard = async (stats = {}, options = {}) => {
     const {
         title,
         logoURL,
@@ -49,7 +48,7 @@ const renderChannelStatsCard = (stats = {}, options = {}) => {
 
     const cardData = {
         title: wrapText(custom_title) || wrapText(title),
-        logo: hide_logo ? "" : getLOGO(logoURL),
+        logo: hide_logo ? "" : getLOGO(await URL2Base64(logoURL)),
         subscribers: {
             icon: hide_icons ? "" : icons.subscribers,
             label: "Subscribers",
