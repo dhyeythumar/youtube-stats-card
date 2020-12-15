@@ -5,17 +5,14 @@ const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
 // Channel logo elements
 const getLOGO = (url) => {
-    return {
-        clipPath:
-            `<clipPath id="imgholder" transform="translate(0 0)">
-                <circle class="card-logo" cx="40" cy="40" r="40"/>
-            </clipPath>`,
-        logoHolder:
-            `<image transform="translate(0 0)" width="80" height="80" xlink:href="${url}" clip-path="url(#imgholder)"/>
-            <g data-testid="card-logo" transform="translate(0 20)">
-                <circle class="circle-rim" cx="40" cy="40" r="40"/>
-            </g>`,
-    };
+    return `<foreignObject transform="translate(0 0)"  width="80" height="80">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <img width="100%" height="100%" src="${url}" style="border-radius:50%" />
+        </div>
+    </foreignObject>
+    <g data-testid="card-logo" transform="translate(0 20)">
+        <circle class="circle-rim" cx="40" cy="40" r="40"/>
+    </g>`;
 }
 
 const renderChannelStatsCard = (stats = {}, options = {}) => {
@@ -50,14 +47,9 @@ const renderChannelStatsCard = (stats = {}, options = {}) => {
         theme,
     });
 
-    let logo;
-    if (hide_logo === false) {
-        logo = getLOGO(logoURL);
-    }
-
     const cardData = {
         title: wrapText(custom_title) || wrapText(title),
-        logo: logo || "",
+        logo: hide_logo ? "" : getLOGO(logoURL),
         subscribers: {
             icon: hide_icons ? "" : icons.subscribers,
             label: "Subscribers",

@@ -8,19 +8,17 @@ const layoutNames = ["default", "center"];
 const getlayout = (cardData, cardStyle, metaData, layout) => {
     const layouts = {
         default: `
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
                 <defs>
                     <style>
                         ${cardStyle}
                     </style>
-                    <!-- add clip path here if hide logo is false -->
-                    ${cardData.logo.clipPath}
                 </defs>
                 <rect data-testid="card-bg" x="0.5" y="0.5" rx="4" class="card-bg" height="99%" width="${metaData.cardWidth - 1}" stroke="#e4e2e2" stroke-opacity="${metaData.cardBorder}"/>
 
                 <g transform="translate(${metaData.cardLogoXPos} ${metaData.cardLogoYPos})">
                     <!-- add logo here if hide logo is false -->
-                    ${cardData.logo.logoHolder}
+                    ${cardData.logo}
                 </g>
 
                 <g data-testid="card-title" transform="translate(${metaData.cardTitleXPos} ${metaData.cardTitleYPos})">
@@ -63,19 +61,17 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                 </g>
             </svg>`,
         center: `
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
                 <defs>
                     <style>
                         ${cardStyle}
                     </style>
-                    <!-- add clip path here if hide logo is false -->
-                    ${cardData.logo.clipPath}
                 </defs>
                 <rect data-testid="card-bg" x="0.5" y="0.5" rx="4" class="card-bg" height="99%" width="${metaData.cardWidth - 1}" stroke="#e4e2e2" stroke-opacity="${metaData.cardBorder}"/>
 
                 <g transform="translate(${metaData.cardLogoXPos} ${metaData.cardLogoYPos})">
                     <!-- add logo here if hide logo is false -->
-                    ${cardData.logo.logoHolder}
+                    ${cardData.logo}
                 </g>
 
                 <line data-name="line" stroke="#e4e2e2" stroke-opacity="${metaData.cardBorder - 1}" x2="318" transform="translate(40 124)"/>
