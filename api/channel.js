@@ -22,6 +22,7 @@ module.exports = async (req, res) => {
     } = req.query;
 
     res.setHeader("Content-Type", "image/svg+xml");
+    res.setHeader("Content-Security-Policy", "img-src https: data:;");
 
     try {
         const stats = await fetchChannelStats(channelid);
