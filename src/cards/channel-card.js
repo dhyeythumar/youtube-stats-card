@@ -7,7 +7,7 @@ const { numberFormatter, getCardColors, wrapText } = require("../common/utils");
 const getLOGO = (url) => {
     return `<foreignObject transform="translate(0 0)"  width="80" height="80">
         <div xmlns="http://www.w3.org/1999/xhtml">
-            <img width="100%" height="100%" src="${url}" style="border-radius:50%" />
+            <img width="100%" height="100%" src="${url}" crossorigin="anonymous" style="border-radius:50%" />
         </div>
     </foreignObject>
     <g data-testid="card-logo" transform="translate(0 20)">

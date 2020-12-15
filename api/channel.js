@@ -21,8 +21,17 @@ module.exports = async (req, res) => {
         cache_seconds,
     } = req.query;
 
+    // External resources (e.g. images, stylesheets) cannot be loaded, though they can be used if inlined through BlobBuilder object URLs or data: URIs.
+
+    // script-src 'strict-dynamic' 'nonce-rAnd0m123' 'unsafe-inline' http: https:;
+    // object-src 'none';
+    // base-uri 'none';
+    // img-src https: data:;
+    // require-trusted-types-for 'script';
+
     res.setHeader("Content-Type", "image/svg+xml");
     res.setHeader("Content-Security-Policy", "img-src https: data:;");
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
     try {
         const stats = await fetchChannelStats(channelid);
