@@ -11,7 +11,7 @@ const getLOGO = (url) => {
                 <circle class="card-logo" cx="40" cy="40" r="40"/>
             </clipPath>`,
         logoHolder:
-            `<image transform="translate(0 0)" width="80" height="80" href="${url}" clip-path="url(#imgholder)"/>
+            `<image transform="translate(0 0)" width="80" height="80" xlink:href="${url}" clip-path="url(#imgholder)"/>
             <g data-testid="card-logo" transform="translate(0 20)">
                 <circle class="circle-rim" cx="40" cy="40" r="40"/>
             </g>`,

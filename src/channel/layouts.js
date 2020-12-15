@@ -8,7 +8,7 @@ const layoutNames = ["default", "center"];
 const getlayout = (cardData, cardStyle, metaData, layout) => {
     const layouts = {
         default: `
-            <svg xmlns="http://www.w3.org/2000/svg" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
                 <defs>
                     <style>
                         ${cardStyle}
@@ -63,7 +63,7 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                 </g>
             </svg>`,
         center: `
-            <svg xmlns="http://www.w3.org/2000/svg" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${metaData.cardWidth}" height="${metaData.cardHeight}" viewBox="0 0 ${metaData.cardWidth} ${metaData.cardHeight}">
                 <defs>
                     <style>
                         ${cardStyle}
