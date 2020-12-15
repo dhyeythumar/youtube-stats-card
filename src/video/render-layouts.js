@@ -32,7 +32,7 @@ const renderLayout = (cardData, colors, metaData, layout) => {
 
         // if no channel name then shift body up & reduce card height
         if (cardData.channelTitle === "") {
-            metaData.cardHeight -= 30;
+            // metaData.cardHeight -= 30; // modify image height also
             metaData.cardBodyYPos -= 30;
         }
         // if no icon then shift body left
