@@ -39,7 +39,7 @@
 
 Change the `?channelid=` value to your YouTube Channel ID.
 
-**[Check out this](https://www.youtube.com/account_advanced) to get your youtube channel id.**
+**[Check out this](https://github.com/Dhyeythumar/youtube-stats-card/discussions/1) to get your youtube channel id.**
 
 <p style="font-weigth:700; font-size:10px;color:" align="center">
 <br/> &bull; &bull; &bull; &bull;
@@ -108,7 +108,7 @@ You can customize the appearance of your `Channel Stats Card` with following URL
 
 Change the `?videoid=` value to your youtube video ID.
 
-**[Check out this](https://www.youtube.com/account_advanced) to get your youtube video id.**
+**[Check out this](https://github.com/Dhyeythumar/youtube-stats-card/discussions/2) to get your youtube video id.**
 
 <p style="font-weigth:700; font-size:10px;color:" align="center">
 <br/> &bull; &bull; &bull; &bull;
