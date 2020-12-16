@@ -22,7 +22,7 @@
 
 ## YouTube Channel Stats Card
 
-#### <p id="channel-usage">Usage</p>
+#### **<p id="channel-usage">Usage</p>**
 
 ```md
 [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig)
@@ -36,24 +36,24 @@ Change the `?channelid=` value to your YouTube Channel ID.
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### <p id="channel-layout-demos">Layout Demos</p>
+#### **<p id="channel-layout-demos">Layout Demos</p>**
 
 _Below layouts uses default parameters_\*
 
-| <div style="width:300px"> Layouts </div> |                                                                                                         Preview                                                                                                         |
-| :--------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|              Default Layout              |        [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)        |
-|      Center Layout `&layout=center`      | [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&layout=center&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1) |
+|            Layouts             |                                                                                                         Preview                                                                                                         |
+| :----------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|         Default Layout         |        [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)        |
+| Center Layout `&layout=center` | [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&layout=center&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1) |
 
 <p style="font-weigth:700; font-size:10px;color:" align="center">
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### <p id="channel-customization">Customization</p>
+#### **<p id="channel-customization">Customization</p>**
 
 _All the Customizations are applied to the default layout_\*
 
-|                             <div style="width:250px"> Parameters </div>                             |                                                                                                                                     Preview                                                                                                                                      |
+|                                             Parameters                                              |                                                                                                                                     Preview                                                                                                                                      |
 | :-------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |                                    Hide Icons `&hide_icons=true`                                    |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_icons=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
 |                                     Hide Logo `&hide_logo=true`                                     |                             [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_logo=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
@@ -68,7 +68,7 @@ _All the Customizations are applied to the default layout_\*
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### <p id="channel-overview">Overview</p>
+#### **<p id="channel-overview">Overview</p>**
 
 You can customize the appearance of your `Channel Stats Card` with following URL params:
 
@@ -91,7 +91,7 @@ You can customize the appearance of your `Channel Stats Card` with following URL
 
 ## YouTube Video Stats Card
 
-#### <p id="video-usage">Usage</p>
+#### **<p id="video-usage">Usage</p>**
 
 ```md
 [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ)](https://youtu.be/4vwZNTagHsQ)
@@ -105,24 +105,24 @@ Change the `?videoid=` value to your youtube video ID.
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### <p id="video-layout-demos">Layout Demos</p>
+#### **<p id="video-layout-demos">Layout Demos</p>**
 
 _Below layouts uses default parameters_\*
 
-| <div style="width:300px"> Layouts </div> |                                                                            Preview                                                                             |
-| :--------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|              Default Layout              |        [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)         |
-|     Compact Layout `&layout=compact`     | [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&layout=compact&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ) |
+|             Layouts              |                                                                            Preview                                                                             |
+| :------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|          Default Layout          |        [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)         |
+| Compact Layout `&layout=compact` | [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&layout=compact&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ) |
 
 <p style="font-weigth:700; font-size:10px;color:" align="center">
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### <p id="video-customization">Customization</p>
+#### **<p id="video-customization">Customization</p>**
 
 _All the Customizations are applied to the default layout_\*
 
-|                             <div style="width:250px"> Parameters </div>                             |                                                                                                        Preview                                                                                                         |
+|                                             Parameters                                              |                                                                                                        Preview                                                                                                         |
 | :-------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 |                                    Hide Icons `&hide_icons=true`                                    |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_icons=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                             |
 |                               Hide Video Preview `&hide_preview=true`                               |                           [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_preview=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                            |
@@ -137,7 +137,7 @@ _All the Customizations are applied to the default layout_\*
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### <p id="video-overview">Overview</p>
+#### **<p id="video-overview">Overview</p>**
 
 You can customize the appearance of your `Video Stats Card` with following URL params:
 
