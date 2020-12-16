@@ -1,4 +1,4 @@
-const themes = require("../../themes/color-themes");
+const themes = require("../../themes");
 const request = require('superagent')
 
 const URL2Base64 = async (url) => {
