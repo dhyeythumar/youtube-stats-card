@@ -1,6 +1,15 @@
 <p align="center">
+    <img width="160px" src="https://raw.githubusercontent.com/dhyeythumar/impression/master/youtube_stats_card_assets/icon.svg" align="center" alt="YouTube Stats Card" />
     <h2 align="center">YouTube Stats Card</h2>
     <p align="center">Get dynamically generated YouTube Stats Cards for your github readmes &amp; websites!</p>
+</p>
+
+<p align="center">
+    <a href="https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&layout=center&cache_seconds=14400">View Demo</a>
+    ·
+    <a href="https://github.com/Dhyeythumar/youtube-stats-card/issues/new/choose">Report Bug</a>
+    ·
+    <a href="https://github.com/Dhyeythumar/youtube-stats-card/issues/new/choose">Request Feature</a>
 </p>
 
 ## What’s In This Document
@@ -15,7 +24,7 @@
   - [Layout Demos](#video-layout-demos)
   - [Customization](#video-customization)
   - [Overview](#video-overview)
-- [Contribution](./contributing)
+- [Contribution](./CONTRIBUTING.md)
 - [Support the project](#support-the-project)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
