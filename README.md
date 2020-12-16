@@ -6,15 +6,15 @@
 ## What’s In This Document
 
 - [YouTube Channel Stats Card](#youtube-channel-stats-card)
-  - [Usage](#usage)
-  - [Layout Demos](#layout-demos)
-  - [Customization](#customization)
-  - [Overview](#overview)
+  - [Usage](#channel-usage)
+  - [Layout Demos](#channel-layout-demos)
+  - [Customization](#channel-customization)
+  - [Overview](#channel-overview)
 - [YouTube Video Stats Card](#youtube-video-stats-card)
-  - [Usage](#usage)
-  - [Layout Demos](#layout-demos)
-  - [Customization](#customization)
-  - [Overview](#overview)
+  - [Usage](#video-usage)
+  - [Layout Demos](#video-layout-demos)
+  - [Customization](#video-customization)
+  - [Overview](#video-overview)
 - [Contribution](./contributing)
 - [Support the project](#support-the-project)
 - [License](#license)
@@ -22,7 +22,7 @@
 
 ## YouTube Channel Stats Card
 
-#### Usage
+#### <p id="channel-usage">Usage</p>
 
 ```md
 [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig)
@@ -36,39 +36,39 @@ Change the `?channelid=` value to your YouTube Channel ID.
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### Layout Demos
+#### <p id="channel-layout-demos">Layout Demos</p>
 
-|                Layouts                 |                                                                                                         Preview                                                                                                         |
-| :------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| Default Layout with default parameters |        [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)        |
-|  Center Layout <br/> `&layout=center`  | [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&layout=center&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1) |
+_Below layouts uses default parameters_\*
 
-_Above layouts uses default parameters_\*
-
-<p style="font-weigth:700; font-size:10px;color:" align="center">
-<br/> &bull; &bull; &bull; &bull;
-</p>
-
-#### Customization
-
-(All the Customizations are applied to the default layout)
-
-|                                                       Parameters                                                        |                                                                                                                                     Preview                                                                                                                                      |
-| :---------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                           Hide Icons <br/> `&hide_icons=true`                                           |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_icons=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
-|                                            Hide Logo <br/> `&hide_logo=true`                                            |                             [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_logo=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
-|                                          Color Theme <br/> `&theme=THEME_NAME`                                          |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&theme=dark_pink&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
-|                                          Hide Border <br/> `&hide_border=true`                                          |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_border=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                            |
-| Manual Color Theme <br/> `&title_color=cbf7db`<br/>`&icon_color=99ffbe`<br/>`&text_color=fffefe`<br/>`&bg_color=40423e` | [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&title_color=cbf7db&icon_color=99ffbe&text_color=fffefe&bg_color=40423e&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1) |
-|                                    Custom Title <br/> `custom_title=My Channel Name`                                    |                [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&custom_title=My%20Channel%20Name%20Here&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                 |
-
-[Check all the available color themes here](./themes/README.md) or checkout the [theme config file](./themes/index.js) & you can also contribute new themes if you like.
+| <div style="width:300px"> Layouts </div> |                                                                                                         Preview                                                                                                         |
+| :--------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|              Default Layout              |        [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)        |
+|      Center Layout `&layout=center`      | [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&layout=center&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1) |
 
 <p style="font-weigth:700; font-size:10px;color:" align="center">
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### Customization Overview
+#### <p id="channel-customization">Customization</p>
+
+_All the Customizations are applied to the default layout_\*
+
+|                             <div style="width:250px"> Parameters </div>                             |                                                                                                                                     Preview                                                                                                                                      |
+| :-------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                    Hide Icons `&hide_icons=true`                                    |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_icons=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
+|                                     Hide Logo `&hide_logo=true`                                     |                             [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_logo=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
+|                                   Color Theme `&theme=THEME_NAME`                                   |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&theme=dark_pink&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                             |
+|                                   Hide Border `&hide_border=true`                                   |                            [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&hide_border=true&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                            |
+| Manual Color Theme `&title_color=cbf7db&icon_color=99ffbe`<br/>`&text_color=fffefe&bg_color=40423e` | [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&title_color=cbf7db&icon_color=99ffbe&text_color=fffefe&bg_color=40423e&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1) |
+|                           Custom Title `custom_title=My%20Channel%20Name`                           |                [![Dhyey's youtube stats](https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&custom_title=My%20Channel%20Name%20Here&cache_seconds=86400)](https://www.youtube.com/channel/UCpKizIKSk8ga_LCI3e3GUig?sub_confirmation=1)                 |
+
+[Check all the available color themes here](./themes/README.md) or checkout the [theme config file](./themes/index.js) & you can also contribute new themes if you like 🙂.
+
+<p style="font-weigth:700; font-size:10px;color:" align="center">
+<br/> &bull; &bull; &bull; &bull;
+</p>
+
+#### <p id="channel-overview">Overview</p>
 
 You can customize the appearance of your `Channel Stats Card` with following URL params:
 
@@ -91,7 +91,7 @@ You can customize the appearance of your `Channel Stats Card` with following URL
 
 ## YouTube Video Stats Card
 
-#### Usage
+#### <p id="video-usage">Usage</p>
 
 ```md
 [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ)](https://youtu.be/4vwZNTagHsQ)
@@ -105,39 +105,39 @@ Change the `?videoid=` value to your youtube video ID.
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### Layout Demos
+#### <p id="video-layout-demos">Layout Demos</p>
 
-|                Layouts                 |                                                                            Preview                                                                             |
-| :------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|             Default Layout             |        [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)         |
-| compact Layout <br/> `&layout=compact` | [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&layout=compact&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ) |
+_Below layouts uses default parameters_\*
 
-_Above layouts uses default parameters_\*
-
-<p style="font-weigth:700; font-size:10px;color:" align="center">
-<br/> &bull; &bull; &bull; &bull;
-</p>
-
-#### Customization
-
-(All the Customizations are applied to the default layout)
-
-|                                                       Parameters                                                        |                                                                                                        Preview                                                                                                         |
-| :---------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                           Hide Icons <br/> `&hide_icons=true`                                           |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_icons=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                             |
-|                                      Hide Video Preview <br/> `&hide_preview=true`                                      |                           [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_preview=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                            |
-|                                          Color Theme <br/> `&theme=THEME_NAME`                                          |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&theme=dark_pink&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                             |
-|                                          Hide Border <br/> `&hide_border=true`                                          |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_border=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                            |
-| Manual Color Theme <br/> `&title_color=cbf7db`<br/>`&icon_color=99ffbe`<br/>`&text_color=fffefe`<br/>`&bg_color=40423e` | [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&title_color=cbf7db&icon_color=99ffbe&text_color=fffefe&bg_color=40423e&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ) |
-|                                    Hide Channel Name <br/> `&hide_channelname=true`                                     |                         [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_channelname=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                          |
-
-[Check all the available color themes here](./themes/README.md) or checkout the [theme config file](./themes/index.js) & you can also contribute new themes if you like.
+| <div style="width:300px"> Layouts </div> |                                                                            Preview                                                                             |
+| :--------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|              Default Layout              |        [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)         |
+|     Compact Layout `&layout=compact`     | [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&layout=compact&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ) |
 
 <p style="font-weigth:700; font-size:10px;color:" align="center">
 <br/> &bull; &bull; &bull; &bull;
 </p>
 
-#### Customization Overview
+#### <p id="video-customization">Customization</p>
+
+_All the Customizations are applied to the default layout_\*
+
+|                             <div style="width:250px"> Parameters </div>                             |                                                                                                        Preview                                                                                                         |
+| :-------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                    Hide Icons `&hide_icons=true`                                    |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_icons=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                             |
+|                               Hide Video Preview `&hide_preview=true`                               |                           [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_preview=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                            |
+|                                   Color Theme `&theme=THEME_NAME`                                   |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&theme=dark_pink&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                             |
+|                                   Hide Border `&hide_border=true`                                   |                            [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_border=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                            |
+| Manual Color Theme `&title_color=cbf7db&icon_color=99ffbe`<br/>`&text_color=fffefe&bg_color=40423e` | [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&title_color=cbf7db&icon_color=99ffbe&text_color=fffefe&bg_color=40423e&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ) |
+|                             Hide Channel Name `&hide_channelname=true`                              |                         [![Dhyey's video stats](https://youtube-stats-card.vercel.app/api/video?videoid=4vwZNTagHsQ&hide_channelname=true&cache_seconds=86400)](https://youtu.be/4vwZNTagHsQ)                          |
+
+[Check all the available color themes here](./themes/README.md) or checkout the [theme config file](./themes/index.js) & you can also contribute new themes if you like 🙂.
+
+<p style="font-weigth:700; font-size:10px;color:" align="center">
+<br/> &bull; &bull; &bull; &bull;
+</p>
+
+#### <p id="video-overview">Overview</p>
 
 You can customize the appearance of your `Video Stats Card` with following URL params:
 
