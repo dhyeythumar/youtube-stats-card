@@ -1,5 +1,5 @@
 <p align="center">
-    <img width="160px" src="https://raw.githubusercontent.com/dhyeythumar/impression/master/youtube_stats_card_assets/icon.svg" align="center" alt="YouTube Stats Card" />
+    <img width="130px" src="https://raw.githubusercontent.com/dhyeythumar/impression/master/youtube_stats_card_assets/icon.svg" align="center" alt="YouTube Stats Card" />
     <h2 align="center">YouTube Stats Card</h2>
     <p align="center">Get dynamically generated YouTube Stats Cards for your github readmes &amp; websites!</p>
 </p>
