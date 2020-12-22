@@ -2,7 +2,7 @@
 // 1. Create new static function with the name you want as layout name
 // 2. Put the cardData, cardStyle and metaData to correct location
 
-class Layouts {
+export class Layouts {
     constructor() {}
 
     // Default layout for channel card
@@ -26,36 +26,36 @@ class Layouts {
 
             <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
                 <g class="stagger" style="animation-delay: 450ms">
-                    <g transform="translate(142 88)"  class="icon-color">
+                    <g transform="translate(2 0)"  class="icon-color">
                         <!-- subscribers icon path here-->
                         ${cardData.subscribers.icon}
                     </g>
 
-                    <text data-testid="subscriberCountLabel" class="text" transform="translate(178 103)">${cardData.subscribers.label}:</text>
+                    <text data-testid="subscriberCountLabel" class="text" transform="translate(38 15)">${cardData.subscribers.label}:</text>
 
-                    <text data-testid="subscriberCountField" class="text" transform="translate(350 103)">${cardData.subscribers.value}</text>
+                    <text data-testid="subscriberCountField" class="text" transform="translate(210 15)">${cardData.subscribers.value}</text>
                 </g>
 
                 <g class="stagger" style="animation-delay: 600ms">
-                    <g transform="translate(138 128)" class="icon-color iconStroke-reduce">
+                    <g transform="translate(-2 40)" class="icon-color iconStroke-reduce">
                         <!-- total views icon path here-->
                         ${cardData.views.icon}
                     </g>
 
-                    <text data-testid="viewCountLabel" class="text" transform="translate(178 141)">${cardData.views.label}:</text>
+                    <text data-testid="viewCountLabel" class="text" transform="translate(38 53)">${cardData.views.label}:</text>
 
-                    <text data-testid="viewCountField" class="text" transform="translate(350 141)">${cardData.views.value}</text>
+                    <text data-testid="viewCountField" class="text" transform="translate(210 53)">${cardData.views.value}</text>
                 </g>
 
                 <g class="stagger" style="animation-delay: 750ms">
-                    <g transform="translate(142 164)" class="icon-color">
+                    <g transform="translate(2 76)" class="icon-color">
                         <!-- total videos icon path here -->
                         ${cardData.videos.icon}
                     </g>
 
-                    <text id="videoCountLabel" class="text" transform="translate(178 180)">${cardData.videos.label}:</text>
+                    <text id="videoCountLabel" class="text" transform="translate(38 92)">${cardData.videos.label}:</text>
 
-                    <text id="videoCountField" class="text" transform="translate(350 180)">${cardData.videos.value}</text>
+                    <text id="videoCountField" class="text" transform="translate(210 92)">${cardData.videos.value}</text>
                 </g>
             </g>
         </svg>`;
@@ -84,40 +84,38 @@ class Layouts {
 
             <g data-testid="card-body" class="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
                 <g class="stagger" style="animation-delay: 450ms">
-                    <g transform="translate(84 188)" class="icon-color">
+                    <g transform="translate(16 0)" class="icon-color">
                         <!-- subscribers icon path here-->
                         ${cardData.subscribers.icon}
                     </g>
 
-                    <text data-testid="subscriberCountLabel" class="text" transform="translate(118 203)">${cardData.subscribers.label}:</text>
+                    <text data-testid="subscriberCountLabel" class="text" transform="translate(50 15)">${cardData.subscribers.label}:</text>
 
-                    <text data-testid="subscriberCountField" class="text" transform="translate(290 203)">${cardData.subscribers.value}</text>
+                    <text data-testid="subscriberCountField" class="text" transform="translate(222 15)">${cardData.subscribers.value}</text>
                 </g>
 
                 <g class="stagger" style="animation-delay: 600ms">
-                    <g transform="translate(80 229)" class="icon-color iconStroke-reduce">
+                    <g transform="translate(12 41)" class="icon-color iconStroke-reduce">
                         <!-- total views icon path here-->
                         ${cardData.views.icon}
                     </g>
 
-                    <text data-testid="viewCountLabel" class="text" transform="translate(118 243)">${cardData.views.label}:</text>
+                    <text data-testid="viewCountLabel" class="text" transform="translate(50 55)">${cardData.views.label}:</text>
 
-                    <text data-testid="viewCountField" class="text" transform="translate(290 243)">${cardData.views.value}</text>
+                    <text data-testid="viewCountField" class="text" transform="translate(222 55)">${cardData.views.value}</text>
                 </g>
 
                 <g class="stagger" style="animation-delay: 750ms">
-                    <g transform="translate(84 266)" class="icon-color">
+                    <g transform="translate(16 78)" class="icon-color">
                         <!-- total videos icon path here -->
                         ${cardData.videos.icon}
                     </g>
 
-                    <text id="videoCountLabel" class="text" transform="translate(118 282)">${cardData.videos.label}:</text>
+                    <text id="videoCountLabel" class="text" transform="translate(50 94)">${cardData.videos.label}:</text>
 
-                    <text id="videoCountField" class="text" transform="translate(290 282)">${cardData.videos.value}</text>
+                    <text id="videoCountField" class="text" transform="translate(222 94)">${cardData.videos.value}</text>
                 </g>
             </g>
         </svg>`;
     }
 }
-
-module.exports = { layoutNames, Layouts };

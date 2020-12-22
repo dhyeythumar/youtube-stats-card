@@ -44,6 +44,10 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardTitleXPos = 140;
         metaData.cardTitleYPos = 50;
 
+        // body's (x, y) pos for this layout
+        metaData.cardBodyXPos = 140;
+        metaData.cardBodyYPos = 88;
+
         // if no icon then shift body left
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 36;
@@ -66,8 +70,9 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         // title's x co-ord is auto centered
         metaData.cardTitleYPos = 162;
 
-        // TODO :: find a better way to center body's x co-ord
-        metaData.cardBodyXPos -= 12;
+        // TODO :: find a better way to center body's x co-ords
+        metaData.cardBodyXPos = 68;
+        metaData.cardBodyYPos = 188;
 
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 18;
