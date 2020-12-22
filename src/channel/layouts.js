@@ -1,10 +1,6 @@
-// List of all layout available for channel stats card
-const layoutNames = ["default", "center"];
-
 // :: While adding new layout ::
 // 1. Create new static function with the name you want as layout name
 // 2. Put the cardData, cardStyle and metaData to correct location
-// 3. Add the new layout name to above `layoutNames` list !!
 
 class Layouts {
     constructor() {}

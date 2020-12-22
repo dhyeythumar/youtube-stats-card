@@ -1,5 +1,6 @@
-const { layoutNames, Layouts } = require("./layouts")
-const { getCommonStyle } = require("../common/getStyles")
+const { Layouts } = require("./layouts");
+const { getCommonStyle } = require("../common/getStyles");
+const { YTStatsRequestError } = require("../common/utils");
 
 const getCustomStyle = (colors) => {
     return `
@@ -10,15 +11,10 @@ const getCustomStyle = (colors) => {
     }`;
 }
 
-const renderLayout = (cardData, colors, metaData, layout) => {
+const renderLayout = (cardData, colors, metaData, selectedLayout) => {
 
     const customStyle = getCustomStyle(colors);
     const cardStyle = getCommonStyle(colors, customStyle);
-
-    let selectedLayout = layout;
-    if (layout != "default") {
-        selectedLayout = layoutNames.includes(layout) ? layout : "default";
-    }
 
     // :: add/modify specific values for the specific layout ::
     if (selectedLayout === "default") {
@@ -62,6 +58,10 @@ const renderLayout = (cardData, colors, metaData, layout) => {
             metaData.cardBodyYPos -= 52;
         }
         return Layouts.compact(cardData, cardStyle, metaData);
+    }
+    else {
+        throw new YTStatsRequestError("The selected Layout doesn't exists !!", YTStatsRequestError.LAYOUT_NOT_FOUND
+        );
     }
 }
 
