@@ -1,4 +1,4 @@
-const { layoutNames, getlayout } = require("./layouts")
+const { layoutNames, Layouts } = require("./layouts")
 const { getCommonStyle } = require("../common/getStyles")
 
 const getCustomStyle = (colors) => {
@@ -57,6 +57,7 @@ const renderLayout = (cardData, colors, metaData, layout) => {
             metaData.cardTitleXPos -= 40;
             metaData.cardBodyXPos -= 40;
         }
+        return Layouts.default(cardData, cardStyle, metaData);
     }
     else if (selectedLayout === "center") {
         metaData.cardBorder = 2;
@@ -81,13 +82,11 @@ const renderLayout = (cardData, colors, metaData, layout) => {
             metaData.cardHeight -= 102;
             metaData.cardBorder = 1;  // if no logo then no line
         }
+        return Layouts.center(cardData, cardStyle, metaData);
     }
-
-    return getlayout(cardData, cardStyle, metaData, selectedLayout);
 }
 
 module.exports = renderLayout;
-
 
 /*
 ----------- object skeleton for cardData -----------

@@ -2,8 +2,6 @@ const fetchVideoStats = require("../src/fetchers/videoStats-fetcher.js");
 const renderVideoStatsCard = require("../src/cards/video-card");
 const { renderError, parseBoolean, clampValue, CONSTANTS } = require("../src/common/utils");
 
-// :: TODO list ::
-// 1. Is there any other efficient way to render card layouts dynamically??
 
 module.exports = async (req, res) => {
     const {

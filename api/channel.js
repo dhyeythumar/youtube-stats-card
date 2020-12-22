@@ -2,8 +2,6 @@ const fetchChannelStats = require("../src/fetchers/channelStats-fetcher");
 const renderChannelStatsCard = require("../src/cards/channel-card");
 const { renderError, parseBoolean, clampValue, CONSTANTS } = require("../src/common/utils");
 
-// :: TODO list ::
-// 1. Is there any other efficient way to render card layouts dynamically??
 
 module.exports = async (req, res) => {
     const {

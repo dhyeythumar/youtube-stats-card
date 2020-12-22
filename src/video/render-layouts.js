@@ -1,4 +1,4 @@
-const { layoutNames, getlayout } = require("./layouts")
+const { layoutNames, Layouts } = require("./layouts")
 const { getCommonStyle } = require("../common/getStyles")
 
 const getCustomStyle = (colors) => {
@@ -39,8 +39,9 @@ const renderLayout = (cardData, colors, metaData, layout) => {
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 38;
         }
+        return Layouts.default(cardData, cardStyle, metaData);
     }
-    if (selectedLayout === "compact") {
+    else if (selectedLayout === "compact") {
         metaData.cardHeight = 252;
         metaData.cardWidth = 618;
 
@@ -60,9 +61,8 @@ const renderLayout = (cardData, colors, metaData, layout) => {
             metaData.cardTitleXPos -= 236;
             metaData.cardBodyYPos -= 52;
         }
+        return Layouts.compact(cardData, cardStyle, metaData);
     }
-
-    return getlayout(cardData, cardStyle, metaData, selectedLayout);
 }
 
 module.exports = renderLayout;
