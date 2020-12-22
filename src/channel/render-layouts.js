@@ -78,12 +78,38 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
             metaData.cardBodyXPos -= 18;
         }
         if (cardData.logo === "") {
+            metaData.cardHeight -= 98;
             metaData.cardTitleYPos -= 102;
             metaData.cardBodyYPos -= 102;
-            metaData.cardHeight -= 102;
             metaData.cardBorder = 1;  // if no logo then no line
         }
         return Layouts.center(cardData, cardStyle, metaData);
+    }
+    else if(selectedLayout === "extruded") {
+        metaData.cardYPos = 40;
+        metaData.cardHeight = 276;
+        metaData.cardWidth = 400;
+
+        metaData.cardLogoXPos = 160;
+        metaData.cardLogoYPos = 2;
+
+        // title's x co-ord is auto centered
+        metaData.cardTitleYPos = 122;
+
+        // TODO :: find a better way to center body's x co-ords
+        metaData.cardBodyXPos = 68;
+        metaData.cardBodyYPos = 148;
+
+        if (cardData.views.icon === "") {
+            metaData.cardBodyXPos -= 18;
+        }
+        if (cardData.logo === "") {
+            metaData.cardYPos = 0.5;
+            metaData.cardHeight -= 62;
+            metaData.cardTitleYPos -= 62;
+            metaData.cardBodyYPos -= 62;
+        }
+        return Layouts.extruded(cardData, cardStyle, metaData);
     }
     else {
         throw new YTStatsRequestError("The selected Layout doesn't exists !!", YTStatsRequestError.LAYOUT_NOT_FOUND
