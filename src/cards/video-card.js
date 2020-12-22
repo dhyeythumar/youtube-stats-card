@@ -2,26 +2,46 @@ const icons = require("../common/icons");
 const renderLayout = require("../video/render-layouts")
 const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
+const hexToRGB = (hex) => {
+    return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b)
+    .substring(1).match(/.{2}/g)
+    .map(x => parseInt(x, 16))
+}
+
 const getVideoPreview = (imageBlob) => {
-    return `<image width="206" height="116" href="${imageBlob}"/>`;
+    return `
+    <foreignObject width="206" height="116">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <img width="206" height="116" src="${imageBlob}" style="border-radius: 4px" />
+        </div>
+    </foreignObject>`;
 }
 
 const getGradientVideoPreview = (imageBlob, bgColor) => {
-    return {
-        preview:
-            `<image transform="translate(20 0)" width="470" height="263" href="${imageBlob}"/>`,
-        gradientBG:
-            `<linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0" y2="0.5" gradientUnits="objectBoundingBox">
-                <stop offset="0" stop-color="${bgColor}" stop-opacity="0.6"/>
-                <stop offset="0.4" stop-color="${bgColor}" stop-opacity="0.92"/>
-                <stop offset="0.6" stop-color="${bgColor}" stop-opacity="0.96"/>
-                <stop offset="0.8" stop-color="${bgColor}" stop-opacity="100"/>
-            </linearGradient>`,
-        gradientStyle:
-            `.gradient{
-                fill: url(#linear-gradient);
-            }`,
-    };
+    const RGB = hexToRGB(bgColor);
+    return `
+    <style>
+        .bg-size { 
+            width: 490px;
+            height: 263px;
+            border-radius: 4px;
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, 
+                rgba(${RGB[0]}, ${RGB[1]}, ${RGB[2]}, 1)0%, 
+                rgba(${RGB[0]}, ${RGB[1]}, ${RGB[2]}, 0.99)25%, 
+                rgba(${RGB[0]}, ${RGB[1]}, ${RGB[2]}, 0.88)50%, 
+                rgba(${RGB[0]}, ${RGB[1]}, ${RGB[2]}, 0.77)75%, 
+                rgba(${RGB[0]}, ${RGB[1]}, ${RGB[2]}, 0.66)100%
+            );
+        }
+    </style>
+    <foreignObject transform="translate(0 0)" class="bg-size">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="bg-size">
+            <img src="${imageBlob}" class="bg-size" />
+            <div style="position: relative; top: -267px;" class="bg-size gradient-bg"></div>
+        </div>
+    </foreignObject>`;
 }
 
 const renderVideoStatsCard = async (stats = {}, options = {}) => {

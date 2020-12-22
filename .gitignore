@@ -6,7 +6,6 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-.env
 *.lock
 .vscode/
 package-lock.json

@@ -12,14 +12,13 @@ const getlayout = (cardData, cardStyle, metaData, layout) => {
                 <defs>
                     <style>
                         ${cardStyle}
-                        ${cardData.videoPreview.gradientStyle}
                     </style>
-                    ${cardData.videoPreview.gradientBG}
                 </defs>
-                <!-- add video preview here if hide preview is false -->
-                ${cardData.videoPreview.preview}
 
-                <rect data-testid="card-bg" x="0.5" y="0.5" rx="4" class="card-bg gradient" id="linear-gradient"  height="99%" width="${metaData.cardWidth - 1}" stroke="#e4e2e2" stroke-opacity="${metaData.cardBorder}"/>
+                <rect data-testid="card-bg" x="0.5" y="0.5" rx="4" class="card-bg" height="99%" width="${metaData.cardWidth - 1}" stroke="#e4e2e2" stroke-opacity="${metaData.cardBorder}"/>
+
+                <!-- add video preview here if hide preview is false -->
+                ${cardData.videoPreview}
 
                 <g data-testid="card-title" transform="translate(${metaData.cardTitleXPos} ${metaData.cardTitleYPos})">
                     <text x="0" y="0" class="title" data-testid="title">${cardData.title}</text>
