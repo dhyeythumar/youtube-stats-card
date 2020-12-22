@@ -1,5 +1,5 @@
 const icons = require("../common/icons");
-const renderLayout = require("../channel/render-layouts")
+const renderLayout = require("../channel/render-layouts");
 const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
 // Channel logo elements

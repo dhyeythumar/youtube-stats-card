@@ -1,7 +1,7 @@
 // Collecting youtube channel stats
 
 const { YTStatsRequestError } = require("../common/utils");
-const request = require('superagent')
+const request = require("superagent");
 require("dotenv").config();
 
 const fetchChannelStats = async (channelID) => {

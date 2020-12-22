@@ -1,5 +1,5 @@
 const themes = require("../../themes");
-const request = require('superagent')
+const request = require('superagent');
 
 const URL2Base64 = async (url) => {
     let res = await request.get(url);
@@ -46,7 +46,8 @@ const SECONDARY_ERROR_MESSAGES = {
     VIDEO_NOT_FOUND: "Make sure that you provide correct Video ID",
     VIDEO_API_ERROR: "Something went wrong with YouTube Video API",
     PRIVATE_VIDEO: "Make sure the given video is public or unlisted",
-    VIDEO_DELETED: "Make sure the given video exits"
+    VIDEO_DELETED: "Make sure the given video exits",
+    LAYOUT_NOT_FOUND: "Make sure that you provide correct Layout name"
 };
 
 class YTStatsRequestError extends Error {
@@ -62,6 +63,7 @@ class YTStatsRequestError extends Error {
     static VIDEO_API_ERROR = "VIDEO_API_ERROR";
     static PRIVATE_VIDEO = "PRIVATE_VIDEO";
     static VIDEO_DELETED = "VIDEO_DELETED";
+    static LAYOUT_NOT_FOUND = "LAYOUT_NOT_FOUND";
 }
 
 

@@ -1,5 +1,5 @@
 const icons = require("../common/icons");
-const renderLayout = require("../video/render-layouts")
+const renderLayout = require("../video/render-layouts");
 const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
 const hexToRGB = (hex) => {

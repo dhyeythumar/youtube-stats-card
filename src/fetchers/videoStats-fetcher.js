@@ -1,7 +1,7 @@
 // Collecting youtube video stats
 
 const { YTStatsRequestError } = require("../common/utils");
-const request = require('superagent')
+const request = require('superagent');
 require("dotenv").config();
 
 const fetchVideoStats = async (videoID) => {
