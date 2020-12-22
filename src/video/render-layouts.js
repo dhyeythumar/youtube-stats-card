@@ -26,6 +26,10 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardTitleXPos = 30;
         metaData.cardTitleYPos = 50;
 
+        // body's (x, y) pos for this layout
+        metaData.cardBodyXPos = 30;
+        metaData.cardBodyYPos = 110;
+
         // if no channel name then shift body up & reduce card height
         if (cardData.channelTitle === "") {
             // metaData.cardHeight -= 30; // modify image height also
@@ -47,6 +51,9 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
 
         metaData.cardTitleXPos = 266;
         metaData.cardTitleYPos = 50;
+
+        metaData.cardBodyXPos = 30;
+        metaData.cardBodyYPos = 166;
 
         if (cardData.views.icon === "") {
             metaData.cardBodyXPos -= 32;
