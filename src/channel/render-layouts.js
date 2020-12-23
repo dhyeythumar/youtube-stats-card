@@ -1,4 +1,4 @@
-const { Layouts } = require("./layouts");
+const { Components, Layouts } = require("./layouts");
 const { getCommonStyle } = require("../common/getStyles");
 const { YTStatsRequestError } = require("../common/utils");
 
@@ -41,7 +41,7 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardLogoYPos = 30;
 
         // title's (x, y) pos for this layout
-        metaData.cardTitleXPos = 140;
+        metaData.cardTitleXPos = 142;
         metaData.cardTitleYPos = 50;
 
         // body's (x, y) pos for this layout
@@ -49,7 +49,7 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardBodyYPos = 88;
 
         // if no icon then shift body left
-        if (cardData.views.icon === "") {
+        if (cardData.body.views.icon === "") {
             metaData.cardBodyXPos -= 36;
         }
         // if no logo then shift title & body left
@@ -57,7 +57,9 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
             metaData.cardTitleXPos -= 40;
             metaData.cardBodyXPos -= 40;
         }
-        return Layouts.default(cardData, cardStyle, metaData);
+        const cardLogo = Components.getLogo(cardData.logo, metaData.cardLogoXPos, metaData.cardLogoYPos);
+        const cardBody = Components.getBody(cardData.body);
+        return Layouts.default(cardData.title, cardLogo, cardBody, cardStyle, metaData);
     }
     else if (selectedLayout === "center") {
         metaData.cardBorder = 2;
@@ -69,13 +71,11 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
 
         // title's x co-ord is auto centered
         metaData.cardTitleYPos = 162;
-
-        // TODO :: find a better way to center body's x co-ords
-        metaData.cardBodyXPos = 68;
+        // body's x co-ord is auto centered
         metaData.cardBodyYPos = 188;
 
-        if (cardData.views.icon === "") {
-            metaData.cardBodyXPos -= 18;
+        if (cardData.body.views.icon === "") {
+            metaData.cardBodyXPos -= 38;
         }
         if (cardData.logo === "") {
             metaData.cardHeight -= 98;
@@ -83,7 +83,10 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
             metaData.cardBodyYPos -= 102;
             metaData.cardBorder = 1;  // if no logo then no line
         }
-        return Layouts.center(cardData, cardStyle, metaData);
+
+        const cardLogo = Components.getLogo(cardData.logo, metaData.cardLogoXPos, metaData.cardLogoYPos);
+        const cardBody = Components.getBody(cardData.body);
+        return Layouts.center(cardData.title, cardLogo, cardBody, cardStyle, metaData);
     }
     else if(selectedLayout === "extruded") {
         metaData.cardYPos = 40;
@@ -95,13 +98,11 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
 
         // title's x co-ord is auto centered
         metaData.cardTitleYPos = 122;
-
-        // TODO :: find a better way to center body's x co-ords
-        metaData.cardBodyXPos = 68;
+        // body's x co-ord is auto centered
         metaData.cardBodyYPos = 148;
 
-        if (cardData.views.icon === "") {
-            metaData.cardBodyXPos -= 18;
+        if (cardData.body.views.icon === "") {
+            metaData.cardBodyXPos -= 38;
         }
         if (cardData.logo === "") {
             metaData.cardYPos = 0.5;
@@ -109,7 +110,10 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
             metaData.cardTitleYPos -= 62;
             metaData.cardBodyYPos -= 62;
         }
-        return Layouts.extruded(cardData, cardStyle, metaData);
+
+        const cardLogo = Components.getLogo(cardData.logo, metaData.cardLogoXPos, metaData.cardLogoYPos);
+        const cardBody = Components.getBody(cardData.body);
+        return Layouts.extruded(cardData.title, cardLogo, cardBody, cardStyle, metaData);
     }
     else {
         throw new YTStatsRequestError("The selected Layout doesn't exists !!", YTStatsRequestError.LAYOUT_NOT_FOUND
