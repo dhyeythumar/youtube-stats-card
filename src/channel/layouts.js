@@ -115,11 +115,12 @@ export class Layouts {
                 </svg>
             </foreignObject>
 
-            <script type="text/javascript">
+            <script><![CDATA[
                 window.addEventListener("load", function() {
                     const body = document.getElementById("body_svg");
                     body.setAttribute("width", body.getBBox().width);
                 });
+            ]]>
             </script>
         </svg>`;
     }
@@ -148,11 +149,12 @@ export class Layouts {
                 </svg>
             </foreignObject>
 
-            <script type="text/javascript">
+            <script><![CDATA[
                 window.addEventListener("load", function() {
                     const body = document.getElementById("body_svg");
                     body.setAttribute("width", body.getBBox().width);
                 });
+            ]]>
             </script>
         </svg>`;
     }
