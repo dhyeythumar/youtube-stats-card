@@ -2,17 +2,6 @@ const icons = require("../common/icons");
 const renderLayout = require("../channel/render-layouts");
 const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
 
-// Channel logo elements
-const getLOGO = (imageBlob) => {
-    return `<foreignObject transform="translate(0 0)" width="80" height="80">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <img width="100%" height="100%" src="${imageBlob}" style="border-radius:50%" />
-        </div>
-    </foreignObject>
-    <g data-testid="card-logo" transform="translate(0 20)">
-        <circle class="circle-rim" cx="40" cy="40" r="40"/>
-    </g>`;
-}
 
 const renderChannelStatsCard = async (stats = {}, options = {}) => {
     const {
@@ -48,21 +37,23 @@ const renderChannelStatsCard = async (stats = {}, options = {}) => {
 
     const cardData = {
         title: wrapText(custom_title) || wrapText(title),
-        logo: hide_logo ? "" : getLOGO(await URL2Base64(logoURL)),
-        subscribers: {
-            icon: hide_icons ? "" : icons.subscribers,
-            label: "Subscribers",
-            value: numberFormatter(subscriberCount)
-        },
-        views: {
-            icon: hide_icons ? "" : icons.views,
-            label: "Total Views",
-            value: numberFormatter(viewCount)
-        },
-        videos: {
-            icon: hide_icons ? "" : icons.videos,
-            label: "Total Public Videos",
-            value: numberFormatter(videoCount)
+        logo: hide_logo ? "" : await URL2Base64(logoURL),
+        body: {
+            subscribers: {
+                icon: hide_icons ? "" : icons.subscribers,
+                label: "Subscribers",
+                value: numberFormatter(subscriberCount)
+            },
+            views: {
+                icon: hide_icons ? "" : icons.views,
+                label: "Total Views",
+                value: numberFormatter(viewCount)
+            },
+            videos: {
+                icon: hide_icons ? "" : icons.videos,
+                label: "Total Public Videos",
+                value: numberFormatter(videoCount)
+            }
         }
     };
 
