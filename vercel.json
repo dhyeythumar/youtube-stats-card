@@ -2,6 +2,22 @@
     "redirects": [
         {
             "source": "/",
+            "statusCode": 302,
+            "destination": "https://github.com/Dhyeythumar/youtube-stats-card"
+        },
+        {
+            "source": "/src(.*)",
+            "statusCode": 302,
+            "destination": "https://github.com/Dhyeythumar/youtube-stats-card"
+        },
+        {
+            "source": "/themes(.*)",
+            "statusCode": 302,
+            "destination": "https://github.com/Dhyeythumar/youtube-stats-card"
+        },
+        {
+            "source": "/scripts(.*)",
+            "statusCode": 302,
             "destination": "https://github.com/Dhyeythumar/youtube-stats-card"
         }
     ]
