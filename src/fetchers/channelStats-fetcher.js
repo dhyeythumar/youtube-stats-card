@@ -36,12 +36,10 @@ const fetchChannelStats = async (channelID) => {
         return stats;
     }
     else if (res.statusCode == 403 && res.statusMessage == "quotaExceeded") {
-        throw new YTStatsRequestError("YouTube API quota exceeded for this day !!", YTStatsRequestError.QUOTA_EXCEEDED
-        );
+        throw new YTStatsRequestError("YouTube API quota exceeded for this day !!", YTStatsRequestError.QUOTA_EXCEEDED);
     }
     else {
-        throw new YTStatsRequestError(`[ERR] API responded with ${res.statusCode} !!`, YTStatsRequestError.CHANNEL_API_ERROR
-        );
+        throw new YTStatsRequestError(`[ERR] API responded with ${res.statusCode} !!`, YTStatsRequestError.CHANNEL_API_ERROR);
     }
 }
 

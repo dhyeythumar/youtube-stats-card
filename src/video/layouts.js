@@ -100,7 +100,7 @@ export class Layouts {
 
                     <text data-testid="likeCountLabel" class="text" transform="translate(32 15)">${cardData.likes.label}:</text>
 
-                    <text data-testid="likeCountField" class="text" transform="translate(98 15)">${cardData.likes.value}</text>
+                    <text data-testid="likeCountField" class="text" transform="translate(128 15)">${cardData.likes.value}</text>
                 </g>
 
                 <g class="stagger" style="animation-delay: 600ms">
@@ -111,7 +111,7 @@ export class Layouts {
 
                     <text data-testid="dislikeCountLabel" class="text" transform="translate(32 53)">${cardData.dislikes.label}:</text>
 
-                    <text data-testid="dislikeCountField" class="text" transform="translate(98 53)">${cardData.dislikes.value}</text>
+                    <text data-testid="dislikeCountField" class="text" transform="translate(128 53)">${cardData.dislikes.value}</text>
                 </g>
 
                 <g class="stagger" style="animation-delay: 450ms">

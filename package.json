@@ -1,8 +1,8 @@
 {
     "name": "youtube-stats-card",
     "version": "1.0.0",
-    "description": "Dynamically generate YouTube Stats Cards for your github readmes &amp; websites",
-    "main": "index.js",
+    "description": "🚀 Dynamic YouTube Stats Card for your github readmes & websites.",
+    "main": "api/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "gen-theme-readme": "node scripts/generate-theme-readme",
