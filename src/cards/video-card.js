@@ -53,7 +53,6 @@ const renderVideoStatsCard = async (stats = {}, options = {}) => {
         likeCount,
         dislikeCount,
         commentCount,
-        publishedAt
     } = stats;
     const {
         layout = "default",

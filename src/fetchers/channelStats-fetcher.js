@@ -30,8 +30,8 @@ const fetchChannelStats = async (channelID) => {
             viewCount: res.statistics.viewCount,
             subscriberCount: res.statistics.subscriberCount,
             videoCount: res.statistics.videoCount,
-            publishedAt: res.snippet.publishedAt,
-            channelStatus: res.status.privacyStatus
+            // publishedAt: res.snippet.publishedAt,
+            // channelStatus: res.status.privacyStatus
         }
         return stats;
     }

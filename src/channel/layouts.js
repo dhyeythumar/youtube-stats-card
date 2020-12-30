@@ -54,10 +54,10 @@ export class Components {
                 <!-- total videos icon path here -->
                 ${body.videos.icon}
             </g>
-            <text id="videoCountLabel" class="text" transform="translate(38 92)">
+            <text data-testid="videoCountLabel" class="text" transform="translate(38 92)">
                 ${body.videos.label}:
             </text>
-            <text id="videoCountField" class="text" transform="translate(210 92)">
+            <text data-testid="videoCountField" class="text" transform="translate(210 92)">
                 ${body.videos.value}
             </text>
         </g>`;
@@ -107,21 +107,9 @@ export class Layouts {
                 <text x="50%" y="0" class="title" text-anchor="middle" data-testid="title">${cardTitle}</text>
             </g>
 
-            <foreignObject width="100%" height="100" class="card-body" transform="translate(0 ${metaData.cardBodyYPos})">
-                <svg id="body_svg" xmlns="http://www.w3.org/2000/svg" style="height: inherit; display: block; margin: 0 auto;">
-                    <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos} 0)">
-                        ${cardBody}
-                    </g>
-                </svg>
-            </foreignObject>
-
-            <script><![CDATA[
-                window.addEventListener("load", function() {
-                    const body = document.getElementById("body_svg");
-                    body.setAttribute("width", body.getBBox().width);
-                });
-            ]]>
-            </script>
+            <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos} ${metaData.cardBodyYPos})">
+                ${cardBody}
+            </g>
         </svg>`;
     }
 
@@ -141,21 +129,9 @@ export class Layouts {
                 <text x="50%" y="0" class="title" text-anchor="middle" data-testid="title">${cardTitle}</text>
             </g>
 
-            <foreignObject width="100%" height="100" class="card-body" transform="translate(0 ${metaData.cardBodyYPos})">
-                <svg id="body_svg" xmlns="http://www.w3.org/2000/svg" style="height: inherit; display: block; margin: 0 auto;">
-                    <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos} 0)">
-                        ${cardBody}
-                    </g>
-                </svg>
-            </foreignObject>
-
-            <script><![CDATA[
-                window.addEventListener("load", function() {
-                    const body = document.getElementById("body_svg");
-                    body.setAttribute("width", body.getBBox().width);
-                });
-            ]]>
-            </script>
+            <g data-testid="card-body" transform="translate(${metaData.cardBodyXPos}  ${metaData.cardBodyYPos})">
+                ${cardBody}
+            </g>
         </svg>`;
     }
 }

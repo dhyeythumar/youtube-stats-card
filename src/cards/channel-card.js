@@ -10,8 +10,6 @@ const renderChannelStatsCard = async (stats = {}, options = {}) => {
         viewCount,
         subscriberCount,
         videoCount,
-        publishedAt,
-        channelStatus
     } = stats;
     const {
         layout = "default",

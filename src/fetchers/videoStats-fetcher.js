@@ -38,7 +38,7 @@ const fetchVideoStats = async (videoID) => {
                 likeCount: res.statistics.likeCount,
                 dislikeCount: res.statistics.dislikeCount,
                 commentCount: res.statistics.commentCount,
-                publishedAt: res.snippet.publishedAt
+                // publishedAt: res.snippet.publishedAt
             }
             return stats;
         }

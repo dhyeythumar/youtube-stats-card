@@ -1,6 +1,7 @@
 const { Components, Layouts } = require("./layouts");
 const { getCommonStyle } = require("../common/getStyles");
 const { YTStatsRequestError } = require("../common/utils");
+const getBodyXPos = require("../common/textWidthCal");
 
 const getCustomStyle = (colors) => {
     return `
@@ -71,11 +72,11 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
 
         // title's x co-ord is auto centered
         metaData.cardTitleYPos = 162;
-        // body's x co-ord is auto centered
+        metaData.cardBodyXPos = getBodyXPos(cardData.body, metaData.cardWidth);
         metaData.cardBodyYPos = 188;
 
         if (cardData.body.views.icon === "") {
-            metaData.cardBodyXPos -= 38;
+            metaData.cardBodyXPos -= 19;
         }
         if (cardData.logo === "") {
             metaData.cardHeight -= 98;
@@ -98,11 +99,11 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
 
         // title's x co-ord is auto centered
         metaData.cardTitleYPos = 122;
-        // body's x co-ord is auto centered
+        metaData.cardBodyXPos = getBodyXPos(cardData.body, metaData.cardWidth);
         metaData.cardBodyYPos = 148;
 
         if (cardData.body.views.icon === "") {
-            metaData.cardBodyXPos -= 38;
+            metaData.cardBodyXPos -= 19;
         }
         if (cardData.logo === "") {
             metaData.cardYPos = 0.5;
