@@ -1,7 +1,7 @@
 const getCommonStyle = (colors, addExtraCSS = "") => {
     return `
     .title {
-        font: 500 22px Ubuntu, 'Segoe UI', Sans-Serif;
+        font: 500 22px Ubuntu, Sans-Serif;
         fill: ${colors.titleColor};
         animation: fadeInAnimation 0.8s ease-in-out forwards;
     }
@@ -13,7 +13,7 @@ const getCommonStyle = (colors, addExtraCSS = "") => {
         animation: fadeInAnimation 0.3s ease-in-out forwards;
     }
     .text {
-        font: 500 16px Ubuntu, 'Segoe UI', Sans-Serif;
+        font: 500 16px Ubuntu, Sans-Serif;
         fill: ${colors.textColor};
     }
     .bold {
@@ -36,6 +36,6 @@ const getCommonStyle = (colors, addExtraCSS = "") => {
         }
     }
     ${addExtraCSS}`;
-}
+};
 
 module.exports = { getCommonStyle };

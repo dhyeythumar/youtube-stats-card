@@ -75,7 +75,9 @@ const CONSTANTS = {
 };
 
 const numberFormatter = (num) => {
-    if (num >= 1000000000)
+    if (num === undefined || num === null)
+        return "Disabled";
+    else if (num >= 1000000000)
         return (num / 1000000000).toFixed(2).toString() + " B";
     else if (num >= 1000000)
         return (num / 1000000).toFixed(2).toString() + " M";
