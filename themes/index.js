@@ -106,6 +106,12 @@ const themes = {
         icon_color: "2dde98",
         text_color: "ffffff",
         bg_color: "050f2c",
+    },
+    test_theme: {
+        title_color: "00bbff",
+        icon_color: "2ddaaa",
+        text_color: "ffffff",
+        bg_color: "050f2c",
     }
 };
 
