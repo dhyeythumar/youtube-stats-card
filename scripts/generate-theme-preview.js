@@ -1,12 +1,13 @@
 // Working :: This is used to check the preview of new theme in PR
 
-const core = require("@actions/core");
-const github = require("@actions/github");
-const parse = require("parse-diff");
-require("dotenv").config();
+import { getInput } from "@actions/core";
+import { context, getOctokit } from "@actions/github";
+import parse from "parse-diff";
+import { config } from "dotenv";
+config();
 
 const getPrNumber = () => {
-    const pullRequest = github.context.payload.pull_request;
+    const pullRequest = context.payload.pull_request;
     if (!pullRequest) {
         return undefined;
     }
@@ -15,8 +16,8 @@ const getPrNumber = () => {
 
 const run = async () => {
     try {
-        const token = core.getInput("token");
-        const octokit = github.getOctokit(token || process.env.PERSONAL_TOKEN);
+        const token = getInput("token");
+        const octokit = getOctokit(token || process.env.PERSONAL_TOKEN);
         const pullRequestId = getPrNumber();
 
         if (!pullRequestId) {
