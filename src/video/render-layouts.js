@@ -6,7 +6,7 @@ const getCustomStyle = (colors) => {
     return `
     .sub-title {
         font: 400 16px Ubuntu, 'Segoe UI', Sans-Serif;
-        fill: ${colors.titleColor};
+        fill: ${colors.titleColor}bb;
         animation: fadeInAnimation 0.8s ease-in-out forwards;
     }`;
 }
