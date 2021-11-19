@@ -1,9 +1,10 @@
-const fetchVideoStats = require("../src/fetchers/videoStats-fetcher.js");
-const renderVideoStatsCard = require("../src/cards/video-card");
-const { renderError, parseBoolean, clampValue, CONSTANTS } = require("../src/common/utils");
+import fetchVideoStats from "../src/fetchers/videoStats-fetcher.js";
+import renderVideoStatsCard from "../src/cards/video-card.js";
+import { renderError, parseBoolean, clampValue, CONSTANTS } from "../src/common/utils.js";
+import { config } from "dotenv";
+config();
 
-
-module.exports = async (req, res) => {
+export default async (req, res) => {
     const {
         videoid,
         layout,

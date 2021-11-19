@@ -1,6 +1,6 @@
-const icons = require("../common/icons");
-const renderLayout = require("../channel/render-layouts");
-const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
+import icons from "../common/icons.js";
+import renderLayout from "../channel/render-layouts.js";
+import { URL2Base64, numberFormatter, getCardColors, wrapText } from "../common/utils.js";
 
 
 const renderChannelStatsCard = async (stats = {}, options = {}) => {
@@ -72,4 +72,4 @@ const renderChannelStatsCard = async (stats = {}, options = {}) => {
     return renderLayout(cardData, colors, metaData, layout);
 };
 
-module.exports = renderChannelStatsCard;
+export default renderChannelStatsCard;

@@ -1,5 +1,5 @@
-const channelAPI = require("./channel")
+import channelAPI from "./channel.js";
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
     return await channelAPI(req, res);
-}
+};

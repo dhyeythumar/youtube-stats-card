@@ -38,4 +38,4 @@ const getCommonStyle = (colors, addExtraCSS = "") => {
     ${addExtraCSS}`;
 };
 
-module.exports = { getCommonStyle };
+export { getCommonStyle };

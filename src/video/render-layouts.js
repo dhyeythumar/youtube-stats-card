@@ -1,6 +1,6 @@
-const { Layouts } = require("./layouts");
-const { getCommonStyle } = require("../common/getStyles");
-const { YTStatsRequestError } = require("../common/utils");
+import { Layouts } from "./layouts.js";
+import { getCommonStyle } from "../common/getStyles.js";
+import { YTStatsRequestError } from "../common/utils.js";
 
 const getCustomStyle = (colors) => {
     return `
@@ -72,4 +72,4 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
     }
 }
 
-module.exports = renderLayout;
+export default renderLayout;

@@ -1,9 +1,10 @@
-const fetchChannelStats = require("../src/fetchers/channelStats-fetcher");
-const renderChannelStatsCard = require("../src/cards/channel-card");
-const { renderError, parseBoolean, clampValue, CONSTANTS } = require("../src/common/utils");
+import fetchChannelStats from "../src/fetchers/channelStats-fetcher.js";
+import renderChannelStatsCard from "../src/cards/channel-card.js";
+import { renderError, parseBoolean, clampValue, CONSTANTS } from "../src/common/utils.js";
+import { config } from "dotenv";
+config();
 
-
-module.exports = async (req, res) => {
+export default async (req, res) => {
     const {
         channelid,
         layout,

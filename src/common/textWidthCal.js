@@ -28,4 +28,4 @@ const getBodyXPos = (body, cardWidth) => {
     return (cardWidth - bodyWidth) / 2;
 };
 
-module.exports = getBodyXPos;
+export default getBodyXPos;

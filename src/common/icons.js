@@ -30,4 +30,4 @@ const icons = {
         </g>`,
 }
 
-module.exports = icons;
+export default icons;

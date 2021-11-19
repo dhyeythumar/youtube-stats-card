@@ -109,4 +109,4 @@ const themes = {
     }
 };
 
-module.exports = themes;
+export default themes;

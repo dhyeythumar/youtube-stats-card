@@ -1,5 +1,5 @@
-const themes = require("../../themes");
-const request = require('superagent');
+import themes from "../../themes/index.js";
+import request from 'superagent';
 
 const URL2Base64 = async (url) => {
     let res = await request.get(url);
@@ -133,7 +133,7 @@ const wrapText = (text, maxChar = 20) => {
         return text;
 }
 
-module.exports = {
+export {
     URL2Base64,
     renderError,
     YTStatsRequestError,

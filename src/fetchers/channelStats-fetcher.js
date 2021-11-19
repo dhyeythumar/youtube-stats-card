@@ -1,8 +1,7 @@
 // Collecting youtube channel stats
 
-const { YTStatsRequestError } = require("../common/utils");
-const request = require("superagent");
-require("dotenv").config();
+import { YTStatsRequestError } from "../common/utils.js";
+import request from "superagent";
 
 const fetchChannelStats = async (channelID) => {
 
@@ -43,4 +42,4 @@ const fetchChannelStats = async (channelID) => {
     }
 }
 
-module.exports = fetchChannelStats;
+export default fetchChannelStats;

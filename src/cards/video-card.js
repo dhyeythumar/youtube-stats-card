@@ -1,6 +1,6 @@
-const icons = require("../common/icons");
-const renderLayout = require("../video/render-layouts");
-const { URL2Base64, numberFormatter, getCardColors, wrapText } = require("../common/utils");
+import icons from "../common/icons.js";
+import renderLayout from "../video/render-layouts.js";
+import { URL2Base64, numberFormatter, getCardColors, wrapText } from "../common/utils.js";
 
 const hexToRGB = (hex) => {
     return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b)
@@ -129,4 +129,4 @@ const renderVideoStatsCard = async (stats = {}, options = {}) => {
     return renderLayout(cardData, colors, metaData, layout);
 };
 
-module.exports = renderVideoStatsCard;
+export default renderVideoStatsCard;

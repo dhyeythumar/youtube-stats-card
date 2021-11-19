@@ -1,7 +1,7 @@
-const { Components, Layouts } = require("./layouts");
-const { getCommonStyle } = require("../common/getStyles");
-const { YTStatsRequestError } = require("../common/utils");
-const getBodyXPos = require("../common/textWidthCal");
+import { Components, Layouts } from "./layouts.js";
+import { getCommonStyle } from "../common/getStyles.js";
+import { YTStatsRequestError } from "../common/utils.js";
+import getBodyXPos from "../common/textWidthCal.js";
 
 const getCustomStyle = (colors) => {
     return `
@@ -122,7 +122,7 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
     }
 }
 
-module.exports = renderLayout;
+export default renderLayout;
 
 /*
 ----------- object skeleton for cardData -----------
