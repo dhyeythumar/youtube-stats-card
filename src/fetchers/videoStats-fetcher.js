@@ -30,9 +30,19 @@ const fetchVideoStats = async (videoID) => {
             throw new YTStatsRequestError("The following video is deleted", YTStatsRequestError.VIDEO_DELETED);
         }
         else {
+            const thumbnailTypes = ["maxres", "standard", "high", "medium"];
+            let thumbnailURL = res.snippet.thumbnails.default.url;
+
+            thumbnailTypes.every((thumbnailType) => {
+                if (res.snippet.thumbnails[thumbnailType]) {
+                    thumbnailURL = res.snippet.thumbnails[thumbnailType].url
+                    return false;
+                }
+            });
+
             const stats = {
                 title: res.snippet.title,
-                videoPreviewURL: res.snippet.thumbnails.maxres.url,
+                videoPreviewURL: thumbnailURL,
                 channelTitle: res.snippet.channelTitle,
                 viewCount: res.statistics.viewCount,
                 likeCount: res.statistics.likeCount,
