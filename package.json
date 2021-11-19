@@ -2,6 +2,9 @@
     "name": "youtube-stats-card",
     "version": "1.0.0",
     "description": "🚀 Dynamic YouTube Stats Card for your github readmes & websites.",
+    "author": "Dhyey Thumar",
+    "email": "dhyeythumar@gmail.com",
+    "license": "MIT",
     "main": "api/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,8 +16,6 @@
         "type": "git",
         "url": "git+https://github.com/Dhyeythumar/youtube-stats-card.git"
     },
-    "author": "Dhyey Thumar",
-    "license": "MIT",
     "bugs": {
         "url": "https://github.com/Dhyeythumar/youtube-stats-card/issues"
     },
