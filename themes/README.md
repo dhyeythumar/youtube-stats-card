@@ -15,9 +15,9 @@ Use `&theme=THEME_NAME` parameter like so:
 
 > **Note**
 >
-> - **Here the themes are only applied to Channel Stats Card with the default layout.**
-> - **All these themes work for both the Channel Stats Card and Video Stats Card.**
-> - **And also works for all the different layouts available for Channel Stats Card and Video Stats Card.**
+> -   **Here the themes are only applied to Channel Stats Card with the default layout.**
+> -   **All these themes work for both the Channel Stats Card and Video Stats Card.**
+> -   **And also works for all the different layouts available for Channel Stats Card and Video Stats Card.**
 
 |                                  |                                              |                                        |
 | :------------------------------: | :------------------------------------------: | :------------------------------------: |

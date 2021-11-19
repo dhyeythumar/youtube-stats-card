@@ -1,5 +1,5 @@
-const theme = require("../themes/index");
-const fs = require("fs");
+import theme from "../themes/index.js";
+import { writeFileSync } from "fs";
 
 // :: TODO ::
 // Is it required to add examples related to video stats card with all the color themes similar to channel stats card examples shown in themes>readme.md file?
@@ -97,4 +97,4 @@ const buildReadme = () => {
         .join("\n");
 };
 
-fs.writeFileSync(TARGET_FILE, buildReadme());
+writeFileSync(TARGET_FILE, buildReadme());
