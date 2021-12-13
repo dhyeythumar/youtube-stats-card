@@ -1,24 +1,30 @@
 {
+    "functions": {
+        "api/*.js": {
+            "maxDuration": 10,
+            "memory": 128
+        }
+    },
     "redirects": [
         {
             "source": "/",
-            "statusCode": 302,
-            "destination": "https://github.com/dhyeythumar/youtube-stats-card"
+            "destination": "https://github.com/dhyeythumar/youtube-stats-card",
+            "permanent": false
         },
         {
             "source": "/src(.*)",
-            "statusCode": 302,
-            "destination": "https://github.com/dhyeythumar/youtube-stats-card"
+            "destination": "https://github.com/dhyeythumar/youtube-stats-card",
+            "permanent": false
         },
         {
             "source": "/themes(.*)",
-            "statusCode": 302,
-            "destination": "https://github.com/dhyeythumar/youtube-stats-card"
+            "destination": "https://github.com/dhyeythumar/youtube-stats-card",
+            "permanent": false
         },
         {
             "source": "/scripts(.*)",
-            "statusCode": 302,
-            "destination": "https://github.com/dhyeythumar/youtube-stats-card"
+            "destination": "https://github.com/dhyeythumar/youtube-stats-card",
+            "permanent": false
         }
     ]
 }
