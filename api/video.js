@@ -46,6 +46,7 @@ export default async (req, res) => {
             })
         );
     } catch (err) {
+        console.error(err);
         return res.send(renderError(err.message, err.secondaryMessage));
     }
 };

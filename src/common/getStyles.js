@@ -1,4 +1,4 @@
-const getCommonStyle = (colors, addExtraCSS = "") => {
+const getCommonStyle = (colors, addExtraCSS = '') => {
     return `
     .title {
         font: 500 22px Ubuntu, Sans-Serif;

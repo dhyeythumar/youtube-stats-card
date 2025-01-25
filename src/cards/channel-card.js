@@ -1,18 +1,11 @@
-import icons from "../common/icons.js";
-import renderLayout from "../channel/render-layouts.js";
-import { URL2Base64, numberFormatter, getCardColors, wrapText } from "../common/utils.js";
-
+import icons from '../common/icons.js';
+import renderLayout from '../channel/render-layouts.js';
+import { URL2Base64, numberFormatter, getCardColors, wrapText } from '../common/utils.js';
 
 const renderChannelStatsCard = async (stats = {}, options = {}) => {
+    const { title, logoURL, viewCount, subscriberCount, videoCount } = stats;
     const {
-        title,
-        logoURL,
-        viewCount,
-        subscriberCount,
-        videoCount,
-    } = stats;
-    const {
-        layout = "default",
+        layout = 'default',
         custom_title,
         hide_icons = false,
         hide_logo = false,
@@ -21,7 +14,7 @@ const renderChannelStatsCard = async (stats = {}, options = {}) => {
         icon_color,
         text_color,
         bg_color,
-        theme = "default"
+        theme = 'default',
     } = options;
 
     // returns color theme based on colors with proper overrides and defaults
@@ -35,24 +28,24 @@ const renderChannelStatsCard = async (stats = {}, options = {}) => {
 
     const cardData = {
         title: wrapText(custom_title) || wrapText(title),
-        logo: hide_logo ? "" : await URL2Base64(logoURL),
+        logo: hide_logo ? '' : await URL2Base64(logoURL),
         body: {
             subscribers: {
-                icon: hide_icons ? "" : icons.subscribers,
-                label: "Subscribers",
-                value: numberFormatter(subscriberCount)
+                icon: hide_icons ? '' : icons.subscribers,
+                label: 'Subscribers',
+                value: numberFormatter(subscriberCount),
             },
             views: {
-                icon: hide_icons ? "" : icons.views,
-                label: "Total Views",
-                value: numberFormatter(viewCount)
+                icon: hide_icons ? '' : icons.views,
+                label: 'Total Views',
+                value: numberFormatter(viewCount),
             },
             videos: {
-                icon: hide_icons ? "" : icons.videos,
-                label: "Total Public Videos",
-                value: numberFormatter(videoCount)
-            }
-        }
+                icon: hide_icons ? '' : icons.videos,
+                label: 'Total Public Videos',
+                value: numberFormatter(videoCount),
+            },
+        },
     };
 
     // info about how the card should behave dynamically
@@ -66,7 +59,7 @@ const renderChannelStatsCard = async (stats = {}, options = {}) => {
         cardTitleXPos: 0,
         cardTitleYPos: 0,
         cardBodyXPos: 0,
-        cardBodyYPos: 0
+        cardBodyYPos: 0,
     };
 
     return renderLayout(cardData, colors, metaData, layout);

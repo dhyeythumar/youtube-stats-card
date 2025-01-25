@@ -6,9 +6,7 @@ export class Components {
     constructor() {}
 
     static getLogo = (imageBlob, logoXPos, logoYPos) => {
-        if(imageBlob === "") {
-            return "";
-        }
+        if (imageBlob === '') return '';
         else {
             return `<g transform="translate(${logoXPos} ${logoYPos})">
                 <foreignObject transform="translate(0 0)" width="80" height="80">
@@ -21,7 +19,7 @@ export class Components {
                 </g>
             </g>`;
         }
-    }
+    };
 
     static getBody = (body) => {
         return `
@@ -61,7 +59,7 @@ export class Components {
                 ${body.videos.value}
             </text>
         </g>`;
-    }
+    };
 }
 
 export class Layouts {

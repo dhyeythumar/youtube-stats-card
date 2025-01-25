@@ -1,12 +1,14 @@
-import icons from "../common/icons.js";
-import renderLayout from "../video/render-layouts.js";
-import { URL2Base64, numberFormatter, getCardColors, wrapText } from "../common/utils.js";
+import icons from '../common/icons.js';
+import renderLayout from '../video/render-layouts.js';
+import { URL2Base64, numberFormatter, getCardColors, wrapText } from '../common/utils.js';
 
 const hexToRGB = (hex) => {
-    return hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b)
-    .substring(1).match(/.{2}/g)
-    .map(x => parseInt(x, 16))
-}
+    return hex
+        .replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b)
+        .substring(1)
+        .match(/.{2}/g)
+        .map((x) => parseInt(x, 16));
+};
 
 const getVideoPreview = (imageBlob) => {
     return `
@@ -15,7 +17,7 @@ const getVideoPreview = (imageBlob) => {
             <img width="206" height="116" src="${imageBlob}" style="border-radius: 4px" />
         </div>
     </foreignObject>`;
-}
+};
 
 const getGradientVideoPreview = (imageBlob, bgColor) => {
     const RGB = hexToRGB(bgColor);
@@ -42,20 +44,12 @@ const getGradientVideoPreview = (imageBlob, bgColor) => {
             <div style="position: relative; top: -267px;" class="bg-size gradient-bg"></div>
         </div>
     </foreignObject>`;
-}
+};
 
 const renderVideoStatsCard = async (stats = {}, options = {}) => {
+    const { title, videoPreviewURL, channelTitle, viewCount, likeCount, dislikeCount, commentCount } = stats;
     const {
-        title,
-        videoPreviewURL,
-        channelTitle,
-        viewCount,
-        likeCount,
-        dislikeCount,
-        commentCount,
-    } = stats;
-    const {
-        layout = "default",
+        layout = 'default',
         hide_channelname = false,
         hide_icons = false,
         hide_preview = false,
@@ -64,7 +58,7 @@ const renderVideoStatsCard = async (stats = {}, options = {}) => {
         icon_color,
         text_color,
         bg_color,
-        theme = "default"
+        theme = 'default',
     } = options;
 
     // returns color theme based on colors with proper overrides and defaults
@@ -78,38 +72,37 @@ const renderVideoStatsCard = async (stats = {}, options = {}) => {
 
     let videoPreview;
     if (hide_preview === false) {
-        if (layout === "default") {
+        if (layout === 'default') {
             videoPreview = getGradientVideoPreview(await URL2Base64(videoPreviewURL), colors.bgColor);
-        }
-        else {
+        } else {
             videoPreview = getVideoPreview(await URL2Base64(videoPreviewURL));
         }
     }
 
     const cardData = {
         title: wrapText(title, 30),
-        videoPreview: videoPreview || "",
-        channelTitle: hide_channelname ? "" : wrapText(channelTitle),
+        videoPreview: videoPreview || '',
+        channelTitle: hide_channelname ? '' : wrapText(channelTitle),
         views: {
-            icon: hide_icons ? "" : icons.views,
-            label: "Views",
-            value: numberFormatter(viewCount)
+            icon: hide_icons ? '' : icons.views,
+            label: 'Views',
+            value: numberFormatter(viewCount),
         },
         likes: {
-            icon: hide_icons ? "" : icons.likes,
-            label: "Likes",
-            value: numberFormatter(likeCount)
+            icon: hide_icons ? '' : icons.likes,
+            label: 'Likes',
+            value: numberFormatter(likeCount),
         },
         dislikes: {
-            icon: hide_icons ? "" : icons.dislikes,
-            label: "Dislikes",
-            value: numberFormatter(dislikeCount)
+            icon: hide_icons ? '' : icons.dislikes,
+            label: 'Dislikes',
+            value: numberFormatter(dislikeCount),
         },
         comments: {
-            icon: hide_icons ? "" : icons.comments,
-            label: "Comments",
-            value: numberFormatter(commentCount)
-        }
+            icon: hide_icons ? '' : icons.comments,
+            label: 'Comments',
+            value: numberFormatter(commentCount),
+        },
     };
 
     // info about how the card should behave dynamically
@@ -123,7 +116,7 @@ const renderVideoStatsCard = async (stats = {}, options = {}) => {
         cardTitleXPos: 0,
         cardTitleYPos: 0,
         cardBodyXPos: 0,
-        cardBodyYPos: 0
+        cardBodyYPos: 0,
     };
 
     return renderLayout(cardData, colors, metaData, layout);
