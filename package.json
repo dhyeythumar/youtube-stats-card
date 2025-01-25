@@ -11,7 +11,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "gen-theme-readme": "node scripts/generate-theme-readme",
         "gen-theme-preview": "node scripts/generate-theme-preview",
-        "start": "node api/index"
+        "vercel:dev": "vercel dev",
+        "local": "node --env-file=.env.local --run vercel:dev"
     },
     "repository": {
         "type": "git",
@@ -22,7 +23,6 @@
     },
     "homepage": "https://github.com/dhyeythumar/youtube-stats-card#readme",
     "dependencies": {
-        "dotenv": "^8.2.0",
         "superagent": "^6.1.0"
     },
     "devDependencies": {
