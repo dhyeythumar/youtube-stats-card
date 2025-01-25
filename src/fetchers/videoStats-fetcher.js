@@ -20,7 +20,6 @@ const fetchVideoStats = async (videoId) => {
 
     if (res.status === 200) {
         const json = await res.json();
-        console.log(json);
         if (json.pageInfo.totalResults === 0)
             throw new YTStatsRequestError('Could not fetch the video data', YTStatsRequestError.VIDEO_NOT_FOUND);
 

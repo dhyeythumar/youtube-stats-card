@@ -1,12 +1,12 @@
-import theme from "../themes/index.js";
-import { writeFileSync } from "fs";
+import theme from '../themes/index.js';
+import { writeFileSync } from 'fs';
 
 // :: TODO ::
 // Is it required to add examples related to video stats card with all the color themes similar to channel stats card examples shown in themes>readme.md file?
 
-const TARGET_FILE = "./themes/README.md";
-const CHANNEL_CARD_LINKS_FLAG = "<!-- CHANNEL_CARD_LINKS -->";
-const CHANNEL_CARD_TABLE_FLAG = "<!-- CHANNEL_CARD_TABLE -->";
+const TARGET_FILE = './themes/README.md';
+const CHANNEL_CARD_LINKS_FLAG = '<!-- CHANNEL_CARD_LINKS -->';
+const CHANNEL_CARD_TABLE_FLAG = '<!-- CHANNEL_CARD_TABLE -->';
 
 const THEME_TEMPLATE = `
 ## Available Themes
@@ -50,11 +50,11 @@ const createChannelLink = (theme) => {
 const generateLinks = (fn) => {
     return Object.keys(theme)
         .map((name) => fn(name))
-        .join("");
+        .join('');
 };
 
 const createTableItem = ({ link, label }) => {
-    if (!link || !label) return "";
+    if (!link || !label) return '';
     return `\`${label}\` ![${link}][${link}]`;
 };
 const generateTable = () => {
@@ -80,11 +80,11 @@ const generateTable = () => {
             rows.push(`| [Add your theme][add-theme] | | |`);
         }
     }
-    return rows.join("\n");
+    return rows.join('\n');
 };
 
 const buildReadme = () => {
-    return THEME_TEMPLATE.split("\n")
+    return THEME_TEMPLATE.split('\n')
         .map((line) => {
             if (line.includes(CHANNEL_CARD_LINKS_FLAG)) {
                 return generateLinks(createChannelLink);
@@ -94,7 +94,7 @@ const buildReadme = () => {
             }
             return line;
         })
-        .join("\n");
+        .join('\n');
 };
 
 writeFileSync(TARGET_FILE, buildReadme());

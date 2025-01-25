@@ -1,7 +1,7 @@
-import { Components, Layouts } from "./layouts.js";
-import { getCommonStyle } from "../common/getStyles.js";
-import { YTStatsRequestError } from "../common/utils.js";
-import getBodyXPos from "../common/textWidthCal.js";
+import { Components, Layouts } from './layouts.js';
+import { getCommonStyle } from '../common/getStyles.js';
+import getBodyXPos from '../common/textWidthCal.js';
+import { YTStatsRequestError } from '../common/utils.js';
 
 const getCustomStyle = (colors) => {
     return `
@@ -24,15 +24,14 @@ const getCustomStyle = (colors) => {
             stroke-dashoffset: 0;
         }
     }`;
-}
+};
 
 const renderLayout = (cardData, colors, metaData, selectedLayout) => {
-
     const customStyle = getCustomStyle(colors);
     const cardStyle = getCommonStyle(colors, customStyle);
 
     // :: add/modify specific values for the specific layout ::
-    if (selectedLayout === "default") {
+    if (selectedLayout === 'default') {
         // height & width for this layout
         metaData.cardHeight = 214;
         metaData.cardWidth = 450;
@@ -50,19 +49,18 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardBodyYPos = 88;
 
         // if no icon then shift body left
-        if (cardData.body.views.icon === "") {
+        if (cardData.body.views.icon === '') {
             metaData.cardBodyXPos -= 36;
         }
         // if no logo then shift title & body left
-        if (cardData.logo === "") {
+        if (cardData.logo === '') {
             metaData.cardTitleXPos -= 40;
             metaData.cardBodyXPos -= 40;
         }
         const cardLogo = Components.getLogo(cardData.logo, metaData.cardLogoXPos, metaData.cardLogoYPos);
         const cardBody = Components.getBody(cardData.body);
         return Layouts.default(cardData.title, cardLogo, cardBody, cardStyle, metaData);
-    }
-    else if (selectedLayout === "center") {
+    } else if (selectedLayout === 'center') {
         metaData.cardBorder = 2;
         metaData.cardHeight = 312;
         metaData.cardWidth = 400;
@@ -75,21 +73,20 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardBodyXPos = getBodyXPos(cardData.body, metaData.cardWidth);
         metaData.cardBodyYPos = 188;
 
-        if (cardData.body.views.icon === "") {
+        if (cardData.body.views.icon === '') {
             metaData.cardBodyXPos -= 19;
         }
-        if (cardData.logo === "") {
+        if (cardData.logo === '') {
             metaData.cardHeight -= 98;
             metaData.cardTitleYPos -= 102;
             metaData.cardBodyYPos -= 102;
-            metaData.cardBorder = 1;  // if no logo then no line
+            metaData.cardBorder = 1; // if no logo then no line
         }
 
         const cardLogo = Components.getLogo(cardData.logo, metaData.cardLogoXPos, metaData.cardLogoYPos);
         const cardBody = Components.getBody(cardData.body);
         return Layouts.center(cardData.title, cardLogo, cardBody, cardStyle, metaData);
-    }
-    else if(selectedLayout === "extruded") {
+    } else if (selectedLayout === 'extruded') {
         metaData.cardYPos = 40;
         metaData.cardHeight = 276;
         metaData.cardWidth = 400;
@@ -102,10 +99,10 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         metaData.cardBodyXPos = getBodyXPos(cardData.body, metaData.cardWidth);
         metaData.cardBodyYPos = 148;
 
-        if (cardData.body.views.icon === "") {
+        if (cardData.body.views.icon === '') {
             metaData.cardBodyXPos -= 19;
         }
-        if (cardData.logo === "") {
+        if (cardData.logo === '') {
             metaData.cardYPos = 0.5;
             metaData.cardHeight -= 62;
             metaData.cardTitleYPos -= 62;
@@ -115,12 +112,10 @@ const renderLayout = (cardData, colors, metaData, selectedLayout) => {
         const cardLogo = Components.getLogo(cardData.logo, metaData.cardLogoXPos, metaData.cardLogoYPos);
         const cardBody = Components.getBody(cardData.body);
         return Layouts.extruded(cardData.title, cardLogo, cardBody, cardStyle, metaData);
+    } else {
+        throw new YTStatsRequestError("The selected Layout doesn't exists !!", YTStatsRequestError.LAYOUT_NOT_FOUND);
     }
-    else {
-        throw new YTStatsRequestError("The selected Layout doesn't exists !!", YTStatsRequestError.LAYOUT_NOT_FOUND
-        );
-    }
-}
+};
 
 export default renderLayout;
 

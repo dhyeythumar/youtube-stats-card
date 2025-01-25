@@ -1,10 +1,8 @@
 // Working :: This is used to check the preview of new theme in PR
 
-import { getInput } from "@actions/core";
-import { context, getOctokit } from "@actions/github";
-import parse from "parse-diff";
-import { config } from "dotenv";
-config();
+import { getInput } from '@actions/core';
+import { context, getOctokit } from '@actions/github';
+import parse from 'parse-diff';
 
 const getPrNumber = () => {
     const pullRequest = context.payload.pull_request;
@@ -12,42 +10,42 @@ const getPrNumber = () => {
         return undefined;
     }
     return pullRequest.number;
-}
+};
 
 const run = async () => {
     try {
-        const token = getInput("token");
+        const token = getInput('token');
         const octokit = getOctokit(token || process.env.PERSONAL_TOKEN);
         const pullRequestId = getPrNumber();
 
         if (!pullRequestId) {
-            console.log("PR not found");
+            console.log('PR not found');
             return;
         }
 
         let res = await octokit.pulls.get({
-            owner: "dhyeythumar",
-            repo: "youtube-stats-card",
+            owner: 'dhyeythumar',
+            repo: 'youtube-stats-card',
             pull_number: pullRequestId,
             mediaType: {
-                format: "diff",
+                format: 'diff',
             },
         });
 
         let diff = parse(res.data);
         let colorStrings = diff
-            .find((file) => file.to === "themes/index.js")
-            .chunks[0].changes.filter((c) => c.type === "add")
-            .map((c) => c.content.replace("+", ""))
-            .join("");
+            .find((file) => file.to === 'themes/index.js')
+            .chunks[0].changes.filter((c) => c.type === 'add')
+            .map((c) => c.content.replace('+', ''))
+            .join('');
 
         let matches = colorStrings.match(/(title_color:.*bg_color.*\")/);
-        let colors = matches && matches[0].split(",");
+        let colors = matches && matches[0].split(',');
 
         if (!colors) {
             await octokit.issues.createComment({
-                owner: "dhyeythumar",
-                repo: "youtube-stats-card",
+                owner: 'dhyeythumar',
+                repo: 'youtube-stats-card',
                 body: `
                 \rTheme preview generator
                 Cannot create theme preview
@@ -57,9 +55,7 @@ const run = async () => {
             return;
         }
 
-        colors = colors.map((color) =>
-            color.replace(/.*\:\s/, "").replace(/\"/g, "")
-        );
+        colors = colors.map((color) => color.replace(/.*\:\s/, '').replace(/\"/g, ''));
 
         let titleColor = colors[0];
         let iconColor = colors[1];
@@ -69,8 +65,8 @@ const run = async () => {
         const url = `https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}&bg_color=${bgColor}`;
 
         await octokit.issues.createComment({
-            owner: "dhyeythumar",
-            repo: "youtube-stats-card",
+            owner: 'dhyeythumar',
+            repo: 'youtube-stats-card',
             body: `
             \rTheme preview generator
             
@@ -86,6 +82,6 @@ const run = async () => {
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 run();
