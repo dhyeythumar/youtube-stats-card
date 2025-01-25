@@ -11,7 +11,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "gen-theme-readme": "node scripts/generate-theme-readme",
         "gen-theme-preview": "node scripts/generate-theme-preview",
-        "vercel:dev": "vercel dev",
+        "vercel:dev": "./node_modules/.bin/vercel dev",
         "local": "node --env-file=.env.local --run vercel:dev"
     },
     "repository": {
@@ -25,9 +25,10 @@
     "devDependencies": {
         "@actions/core": "^1.2.6",
         "@actions/github": "^4.0.0",
-        "parse-diff": "^0.7.1"
+        "parse-diff": "^0.7.1",
+        "vercel": "^39.3.0"
     },
-    "packageManager": "pnpm@9.15.3",
+    "packageManager": "pnpm@9.15.4",
     "engines": {
         "node": ">=22.x"
     }
