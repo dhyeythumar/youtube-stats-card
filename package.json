@@ -29,5 +29,9 @@
         "@actions/core": "^1.2.6",
         "@actions/github": "^4.0.0",
         "parse-diff": "^0.7.1"
+    },
+    "packageManager": "pnpm@9.15.3",
+    "engines": {
+        "node": ">=22.x"
     }
 }
