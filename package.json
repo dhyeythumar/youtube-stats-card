@@ -22,9 +22,6 @@
         "url": "https://github.com/dhyeythumar/youtube-stats-card/issues"
     },
     "homepage": "https://github.com/dhyeythumar/youtube-stats-card#readme",
-    "dependencies": {
-        "superagent": "^6.1.0"
-    },
     "devDependencies": {
         "@actions/core": "^1.2.6",
         "@actions/github": "^4.0.0",
