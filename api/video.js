@@ -1,8 +1,6 @@
-import fetchVideoStats from "../src/fetchers/videoStats-fetcher.js";
-import renderVideoStatsCard from "../src/cards/video-card.js";
-import { renderError, parseBoolean, clampValue, CONSTANTS } from "../src/common/utils.js";
-import { config } from "dotenv";
-config();
+import fetchVideoStats from '../src/fetchers/videoStats-fetcher.js';
+import renderVideoStatsCard from '../src/cards/video-card.js';
+import { renderError, parseBoolean, clampValue, CONSTANTS } from '../src/common/utils.js';
 
 export default async (req, res) => {
     const {
@@ -20,7 +18,7 @@ export default async (req, res) => {
         cache_seconds,
     } = req.query;
 
-    res.setHeader("Content-Type", "image/svg+xml");
+    res.setHeader('Content-Type', 'image/svg+xml');
 
     try {
         const stats = await fetchVideoStats(videoid);
@@ -31,7 +29,7 @@ export default async (req, res) => {
             CONSTANTS.ONE_DAY
         );
 
-        res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
+        res.setHeader('Cache-Control', `public, max-age=${cacheSeconds}`);
 
         return res.send(
             await renderVideoStatsCard(stats, {
@@ -44,7 +42,7 @@ export default async (req, res) => {
                 icon_color,
                 text_color,
                 bg_color,
-                theme
+                theme,
             })
         );
     } catch (err) {
