@@ -4,7 +4,7 @@
  * @command pnpm run generate:theme-preview
  */
 
-import { getInput, setFailed } from '@actions/core';
+import { setFailed } from '@actions/core';
 import { context, getOctokit } from '@actions/github';
 import parse from 'parse-diff';
 
@@ -16,7 +16,7 @@ const getPrNumber = () => {
 
 (async () => {
     try {
-        const token = getInput('github_token');
+        const token = process.env.GITHUB_TOKEN;
         const octokit = getOctokit(token);
         const pullRequestId = getPrNumber();
 
