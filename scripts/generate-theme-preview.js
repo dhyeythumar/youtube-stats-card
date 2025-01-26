@@ -43,14 +43,15 @@ const getPrNumber = () => {
                     .map((c) => c.content.replace('+', ''))
                     .join('')
             )
-            .join('');
+            .join('')
+            .replaceAll(' ', '');
         console.log('diff content :: ', content);
 
-        const matches = content.match(/(title_color:.*bg_color.*\")/);
+        const matches = content.match(/(title_color:.*bg_color.*\')/);
         const colors = matches && matches[0].split(',');
         console.log('colors :: ', colors);
 
-        if (!colors) {
+        if (!colors || !colors.length) {
             await octokit.rest.issues.createComment({
                 owner: 'dhyeythumar',
                 repo: 'youtube-stats-card',
@@ -60,7 +61,7 @@ const getPrNumber = () => {
             return;
         }
 
-        const colorMap = colors.map((color) => color.replace(/.*\:\s/, '').replace(/\"/g, ''));
+        const colorMap = colors.map((color) => color.replace(/.*\:/, '').replace(/\'/g, ''));
         const titleColor = colorMap[0];
         const iconColor = colorMap[1];
         const textColor = colorMap[2];
