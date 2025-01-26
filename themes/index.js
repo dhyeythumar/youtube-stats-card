@@ -1,3 +1,9 @@
+/**
+ * :: Usage Note ::
+ * After adding your theme please execute below command to update the themes/readme.md file.
+ * @command pnpm run generate:theme-readme
+ */
+
 const themes = {
     default: {
         title_color: '2f80ed',
