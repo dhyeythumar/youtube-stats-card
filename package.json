@@ -8,9 +8,8 @@
     "main": "api/index",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "gen-theme-readme": "node scripts/generate-theme-readme",
-        "gen-theme-preview": "node scripts/generate-theme-preview",
+        "generate:theme-preview": "node scripts/generate-theme-preview",
+        "generate:theme-readme": "node scripts/generate-theme-readme",
         "vercel:dev": "./node_modules/.bin/vercel dev",
         "local": "node --env-file=.env.local --run vercel:dev"
     },
@@ -23,9 +22,9 @@
     },
     "homepage": "https://github.com/dhyeythumar/youtube-stats-card#readme",
     "devDependencies": {
-        "@actions/core": "^1.2.6",
-        "@actions/github": "^4.0.0",
-        "parse-diff": "^0.7.1",
+        "@actions/core": "^1.11.1",
+        "@actions/github": "^6.0.0",
+        "parse-diff": "^0.11.1",
         "vercel": "^39.3.0"
     },
     "packageManager": "pnpm@9.15.4",
