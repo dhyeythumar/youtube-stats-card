@@ -16,7 +16,7 @@ const getPrNumber = () => {
 
 (async () => {
     try {
-        const token = getInput('github_token') || process.env.PERSONAL_TOKEN;
+        const token = getInput('github_token');
         const octokit = getOctokit(token);
         const pullRequestId = getPrNumber();
 
