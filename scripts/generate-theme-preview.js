@@ -48,7 +48,7 @@ const getPrNumber = () => {
 
         const matches = content.match(/(title_color:.*bg_color.*\")/);
         const colors = matches && matches[0].split(',');
-        console.logs('colors :: ', colors);
+        console.log('colors :: ', colors);
 
         if (!colors) {
             await octokit.rest.issues.createComment({
