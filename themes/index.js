@@ -5,12 +5,14 @@
  */
 
 export default {
+
     default: {
         title_color: '2f80ed',
         icon_color: '4c71f2',
         text_color: '333',
         bg_color: 'fffefe',
     },
+
     dark: {
         title_color: 'fff',
         icon_color: '79ff97',
@@ -33,7 +35,7 @@ export default {
         title_color: 'f7dbcb',
         icon_color: 'ffcbad',
         text_color: 'fffefe',
-        bg_color: '40423e',
+        bg_color: '404231',
     },
     faded_blue: {
         title_color: 'cbf7db',
