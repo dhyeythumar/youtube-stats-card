@@ -4,7 +4,7 @@
  * @command pnpm run generate:theme-readme
  */
 
-const themes = {
+export default {
     default: {
         title_color: '2f80ed',
         icon_color: '4c71f2',
@@ -114,5 +114,3 @@ const themes = {
         bg_color: '050f2c',
     },
 };
-
-export default themes;
