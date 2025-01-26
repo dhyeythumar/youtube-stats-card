@@ -7,7 +7,8 @@ on:
       - main
     paths:
       - "themes/index.js"
-  workflow_dispatch:
+  #! for testing workflow on a branch other than default
+  # workflow_dispatch:
 
 permissions:
   actions: read
@@ -31,9 +32,10 @@ jobs:
     steps:
       - name: Checkout Branch
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }} # for script testing checkout the branch
-      
+        #! for testing workflow on a branch other than default
+        # with:
+        #   ref: ${{ github.head_ref }}
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -49,4 +51,4 @@ jobs:
           pnpm run generate:theme-preview
         env:
           CI: true
-          # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
