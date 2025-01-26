@@ -1,4 +1,4 @@
-name: generate-theme-preview
+name: Generate Theme Preview
 
 on:
   pull_request_target:
@@ -24,14 +24,21 @@ permissions:
 
 jobs:
   themePreview:
-    name: Generate Theme Preview
+    name: Theme Preview Job
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }} # for script testing checkout the branch
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.3
 
-      - name: Setup Node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -43,4 +50,4 @@ jobs:
           pnpm run generate:theme-preview
         env:
           CI: true
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          # PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
