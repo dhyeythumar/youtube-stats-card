@@ -35,7 +35,7 @@ export default {
         title_color: 'f7dbcb',
         icon_color: 'ffcbad',
         text_color: 'fffefe',
-        bg_color: '404231',
+        bg_color: '40423e',
     },
     faded_blue: {
         title_color: 'cbf7db',
@@ -114,5 +114,11 @@ export default {
         icon_color: '2dde98',
         text_color: 'ffffff',
         bg_color: '050f2c',
+    },
+    test: {
+        title_color: '11aeff',
+        icon_color: '2dde38',
+        text_color: 'ff4fff',
+        bg_color: '050f5c',
     },
 };
