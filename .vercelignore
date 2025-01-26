@@ -1,2 +1,5 @@
 .env
 coverage
+.github
+*.md
+themes
