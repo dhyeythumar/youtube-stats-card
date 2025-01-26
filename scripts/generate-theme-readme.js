@@ -1,5 +1,11 @@
+/**
+ * :: Usage Note ::
+ * @file This script generates the themes/readme.md file once you execute the below command.
+ * @command pnpm run generate:theme-readme
+ */
+
 import theme from '../themes/index.js';
-import { writeFileSync } from 'fs';
+import { writeFileSync } from 'node:fs';
 
 // :: TODO ::
 // Is it required to add examples related to video stats card with all the color themes similar to channel stats card examples shown in themes>readme.md file?
@@ -38,7 +44,7 @@ ${CHANNEL_CARD_TABLE_FLAG}
 
 ${CHANNEL_CARD_LINKS_FLAG}
 
-[add-theme]: https://github.com/Dhyeythumar/youtube-stats-card/edit/main/themes/index.js
+[add-theme]: https://github.com/dhyeythumar/youtube-stats-card/edit/main/themes/index.js
 
 Wanted to add a new theme? Consider reading the [contribution guidelines](../CONTRIBUTING.md#themes-contribution)
 `;
