@@ -1,0 +1,46 @@
+name: generate-theme-preview
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened]
+    branches:
+      - main
+    paths:
+      - "themes/index.js"
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  deployments: read
+  issues: read
+  discussions: read
+  packages: read
+  pages: read
+  pull-requests: write
+  repository-projects: read
+  security-events: read
+  statuses: read
+
+jobs:
+  themePreview:
+    name: Generate Theme Preview
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install & Theme Preview
+        run: |
+          pnpm install
+          pnpm run generate:theme-preview
+        env:
+          CI: true
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}

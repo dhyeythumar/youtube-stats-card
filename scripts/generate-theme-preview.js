@@ -1,29 +1,31 @@
-// Working :: This is used to check the preview of new theme in PR
+/**
+ * :: Usage Note ::
+ * @file This script generates a theme preview for new entries in themes/index.js
+ * @command pnpm run generate:theme-preview
+ */
 
-import { getInput } from '@actions/core';
+import { getInput, setFailed } from '@actions/core';
 import { context, getOctokit } from '@actions/github';
 import parse from 'parse-diff';
 
 const getPrNumber = () => {
     const pullRequest = context.payload.pull_request;
-    if (!pullRequest) {
-        return undefined;
-    }
+    if (!pullRequest) return undefined;
     return pullRequest.number;
 };
 
-const run = async () => {
+(async () => {
     try {
-        const token = getInput('token');
-        const octokit = getOctokit(token || process.env.PERSONAL_TOKEN);
+        const token = getInput('github_token') || process.env.PERSONAL_TOKEN;
+        const octokit = getOctokit(token);
         const pullRequestId = getPrNumber();
 
         if (!pullRequestId) {
-            console.log('PR not found');
+            console.error('PR not found');
             return;
         }
 
-        let res = await octokit.pulls.get({
+        const res = await octokit.rest.pulls.get({
             owner: 'dhyeythumar',
             repo: 'youtube-stats-card',
             pull_number: pullRequestId,
@@ -32,56 +34,57 @@ const run = async () => {
             },
         });
 
-        let diff = parse(res.data);
-        let colorStrings = diff
+        const diff = parse(res.data);
+        const content = diff
             .find((file) => file.to === 'themes/index.js')
-            .chunks[0].changes.filter((c) => c.type === 'add')
-            .map((c) => c.content.replace('+', ''))
+            .chunks.map((chunk) =>
+                chunk.changes
+                    .filter((c) => c.type === 'add')
+                    .map((c) => c.content.replace('+', ''))
+                    .join('')
+            )
             .join('');
+        console.log('diff content :: ', content);
 
-        let matches = colorStrings.match(/(title_color:.*bg_color.*\")/);
-        let colors = matches && matches[0].split(',');
+        const matches = content.match(/(title_color:.*bg_color.*\")/);
+        const colors = matches && matches[0].split(',');
+        console.logs('colors :: ', colors);
 
         if (!colors) {
-            await octokit.issues.createComment({
+            await octokit.rest.issues.createComment({
                 owner: 'dhyeythumar',
                 repo: 'youtube-stats-card',
-                body: `
-                \rTheme preview generator
-                Cannot create theme preview
-                `,
                 issue_number: pullRequestId,
+                body: `\rTheme preview generator\nCannot create theme preview`,
             });
             return;
         }
 
-        colors = colors.map((color) => color.replace(/.*\:\s/, '').replace(/\"/g, ''));
-
-        let titleColor = colors[0];
-        let iconColor = colors[1];
-        let textColor = colors[2];
-        let bgColor = colors[3];
+        const colorMap = colors.map((color) => color.replace(/.*\:\s/, '').replace(/\"/g, ''));
+        const titleColor = colorMap[0];
+        const iconColor = colorMap[1];
+        const textColor = colorMap[2];
+        const bgColor = colorMap[3];
 
         const url = `https://youtube-stats-card.vercel.app/api?channelid=UCpKizIKSk8ga_LCI3e3GUig&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}&bg_color=${bgColor}`;
 
-        await octokit.issues.createComment({
+        await octokit.rest.issues.createComment({
             owner: 'dhyeythumar',
             repo: 'youtube-stats-card',
+            issue_number: pullRequestId,
             body: `
             \rTheme preview generator
-            
+
             \ntitle-color: <code>#${titleColor}</code>
             \nicon-color: <code>#${iconColor}</code>
             \ntext-color: <code>#${textColor}</code>
             \nbg-color: <code>#${bgColor}</code>
-      
+
             \r[![](${url})](${url})
             `,
-            issue_number: pullRequestId,
         });
-    } catch (error) {
-        console.log(error);
+    } catch (err) {
+        console.error(err);
+        setFailed(err);
     }
-};
-
-run();
+})();
